@@ -1,4 +1,3 @@
-const db = require('./db');
 const Review = require('./Review');
 const data = require('./dataGenerator');
 
