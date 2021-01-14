@@ -1,14 +1,7 @@
-/* eslint-disable no-console */
 const mongoose = require('mongoose');
+// const db = require('./db');
 
-mongoose.connect('mongodb://127.0.0.1:27017/test', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log('connected to database!'))
-  .catch((e) => console.log(e));
-
-const db = mongoose.connection;
+mongoose.Promise = global.Promise;
 
 const reviewsSchema = new mongoose.Schema({
   product_id: { type: Number, index: true },
@@ -24,6 +17,6 @@ const reviewsSchema = new mongoose.Schema({
 
 reviewsSchema.set('autoIndex', false);
 
-// const Review = mongoose.model('Review', reviewsSchema);
+const Review = mongoose.model('Review', reviewsSchema);
 
-module.exports = db;
+module.exports = Review;
