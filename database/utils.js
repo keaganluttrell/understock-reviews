@@ -61,7 +61,7 @@ const randomVerification = () => {
   return boolean;
 };
 
-const randomBody = new LoremIpsum({
+const lorem = new LoremIpsum({
   sentencesPerParagraph: {
     max: 5,
     min: 1,
@@ -72,6 +72,23 @@ const randomBody = new LoremIpsum({
   },
 });
 
+const randomBody = () => {
+  const rand = Math.floor(Math.random() * 6) + 1;
+  return lorem.generateSentences(rand);
+};
+
+const randomImages = () => {
+  const options = [0, 0, 0, 1, 1, 2, 2, 3];
+  const randIndex = Math.floor(Math.random() * options.length);
+  const images = [];
+  for (let i = 0; i < options[randIndex]; i += 1) {
+    const img = Math.floor(Math.random() * 30);
+    const url = `https://fec-aws-images.s3.us-east-2.amazonaws.com/images/img${img}.jpg`;
+    images.push(url);
+  }
+  return images;
+};
+
 module.exports = {
   randomName,
   randomTitle,
@@ -79,4 +96,5 @@ module.exports = {
   randomVerification,
   randomDate,
   randomBody,
+  randomImages,
 };

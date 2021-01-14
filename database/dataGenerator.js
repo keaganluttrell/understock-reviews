@@ -1,28 +1,28 @@
 const utils = require('./utils');
 
-const data = [];
-const NUMBER_OF_PRODUCTS = 100;
-module.exports = data;
+const seedDB = () => {
+  const products = [];
+  for (let id = 0; id < 100; id += 1) {
+    const reviews = [];
+    const randomReviewCount = Math.floor(Math.random() * 30) + 1;
+    for (let r = 0; r < randomReviewCount; r += 1) {
+      const review = {
+        product_id: id,
+        customer_name: utils.randomName(),
+        review_body: utils.randomBody(),
+        review_title: utils.randomTitle(),
+        rating: utils.randomRating(),
+        verified_purchase: utils.randomVerification(),
+        images: utils.randomImages(),
+        review_date: utils.randomDate(),
+      };
+      reviews.push(review);
+    }
+    products.push(reviews);
+  }
 
-/*
-customer_name mix of full first name, last initial
-
-review_body lorem ipsum
-review_title madlibs
-rating: random from 1 to 5
-verified_purchase
-images
-random date within the last year
-new date with MM/DD/20YY
-*/
-
-const review = {
-  product_id: 0,
-  customer_name: '',
-  review_body: '',
-  review_title: '',
-  rating: 0,
-  verified_purchase: false,
-  images: [],
-  review_date: new Date(),
+  return products.flat();
 };
+const data = seedDB();
+
+module.exports = data;
