@@ -49,6 +49,21 @@ const randomTitle = () => {
 
 const randomRating = () => Math.floor(Math.random() * 5) + 1;
 
+const randomHelpful = () => {
+  const rand = Math.floor(Math.random() * 100);
+  let num = 0;
+  if (rand < 70) {
+    num = 0;
+  } else if (rand >= 70 && rand < 85) {
+    num = 1;
+  } else if (rand >= 85 && rand < 95) {
+    num = 2;
+  } else {
+    num = 3;
+  }
+  return num;
+};
+
 const randomDate = () => {
   const month = Math.floor(Math.random() * 12) + 1;
   const day = Math.floor(Math.random() * 31) + 1;
@@ -97,4 +112,5 @@ module.exports = {
   randomDate,
   randomBody,
   randomImages,
+  randomHelpful,
 };

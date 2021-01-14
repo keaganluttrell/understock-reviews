@@ -3,7 +3,6 @@ const utils = require('./utils');
 const seedDB = () => {
   const products = [];
   for (let id = 0; id < 100; id += 1) {
-    const reviews = [];
     const randomReviewCount = Math.floor(Math.random() * 30) + 1;
     for (let r = 0; r < randomReviewCount; r += 1) {
       const review = {
@@ -15,10 +14,10 @@ const seedDB = () => {
         verified_purchase: utils.randomVerification(),
         images: utils.randomImages(),
         review_date: utils.randomDate(),
+        helpful: utils.randomHelpful(),
       };
-      reviews.push(review);
+      products.push(review);
     }
-    products.push(reviews);
   }
 
   return products.flat();
