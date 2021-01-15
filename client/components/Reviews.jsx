@@ -36,18 +36,17 @@ const Reviews = () => (
     <div id="reviews-mods">
       <Menu />
       <Menu />
-      {/* <div id="mod-sort">
-        <fieldset>
-          <legend>Sort</legend>
-        </fieldset>
-      </div> */}
     </div>
     <ReviewList list={[{}, {}, {}]} />
-
+    <div id="reviews-show-more">
+      <div id="RSM-text">Show More</div>
+      <i className="fas fa-angle-down" />
+    </div>
     <div id="reviews-list-compose">
-      <div className="reviews-list-button" id="write-btn">See all Reviews</div>
+      <div className="reviews-list-button" id="RLB-see-all">See all Reviews</div>
       <div className="reviews-list-button">Write a Review</div>
     </div>
+
   </>
 );
 
