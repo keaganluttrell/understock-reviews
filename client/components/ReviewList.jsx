@@ -15,12 +15,18 @@ const ReviewList = (props) => {
           />
         );
       })}
+
+      <div id="reviews-list-compose">
+        <div className="reviews-list-button" id="write-btn">See all Reviews</div>
+        <div className="reviews-list-button">Write a Review</div>
+      </div>
+
     </div>
   );
 };
 
 ReviewList.propTypes = {
-  list: propTypes.arrayOf(propTypes.number).isRequired,
+  list: propTypes.arrayOf(propTypes.object).isRequired,
 };
 
 export default ReviewList;

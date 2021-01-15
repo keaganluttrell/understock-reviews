@@ -25,7 +25,7 @@ const Reviews = () => (
         </fieldset>
       </div>
     </div>
-    <ReviewList list={[0, 0, 0]} />
+    <ReviewList list={[{}, {}, {}]} />
   </>
 );
 
