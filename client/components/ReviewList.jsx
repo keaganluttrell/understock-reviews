@@ -3,12 +3,13 @@ import React from 'react';
 import propTypes from 'prop-types';
 import ReviewListItem from './ReviewListItem';
 
-const ReviewList = ({ list }) => (
+const ReviewList = ({ list, addHelpful }) => (
   <div id="reviews-list">
     {list.map((item) => (
       <ReviewListItem
         item={item}
         key={item._id}
+        addHelpful={addHelpful}
       />
     ))}
     <div
@@ -22,6 +23,7 @@ const ReviewList = ({ list }) => (
 
 ReviewList.propTypes = {
   list: propTypes.arrayOf(propTypes.object).isRequired,
+  addHelpful: propTypes.func.isRequired,
 };
 
 export default ReviewList;

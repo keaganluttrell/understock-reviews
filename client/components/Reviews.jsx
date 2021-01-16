@@ -2,8 +2,17 @@ import React, { useEffect, useState } from 'react';
 import ReviewList from './ReviewList';
 import Menu from './Menu';
 import Graph from './Graph';
+import Star from './Star';
 
 const productId = 99;
+const filterOptions = [
+  <div id="RFF-all">All</div>,
+  <Star rating={5} />,
+  <Star rating={4} />,
+  <Star rating={3} />,
+  <Star rating={2} />,
+  <Star rating={1} />,
+];
 
 const Reviews = () => {
   const [list, setList] = useState([]);
@@ -15,6 +24,15 @@ const Reviews = () => {
       .then((reviews) => {
         setList(reviews);
       });
+  };
+
+  const addHelpful = (id, checked) => {
+    if (!checked) {
+      fetch(`/${productId}/reviews/${id}`,
+        { method: 'PATCH' })
+        .then((response) => response.json())
+        .then(() => getReviews(limit));
+    }
   };
 
   useEffect(() => {
@@ -34,10 +52,13 @@ const Reviews = () => {
       </div>
 
       <div id="reviews-mods">
-        <Menu />
-        <Menu />
+        <Menu name="Rating" options={filterOptions} />
+        <Menu
+          name="Sort"
+          options={[<div>Most Recent</div>, <div>Most Helpful</div>]}
+        />
       </div>
-      <ReviewList list={list} />
+      <ReviewList list={list} addHelpful={addHelpful} />
 
       <div
         id="reviews-show-more"

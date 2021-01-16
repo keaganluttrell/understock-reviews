@@ -1,27 +1,11 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import propTypes from 'prop-types';
 import Star from './Star';
 
-const ReviewListItem = ({ item }) => {
+const ReviewListItem = ({ item, addHelpful }) => {
   const [helped, setHelped] = useState(false);
-  let { helpful } = item;
-
-  const addHelpful = () => {
-    fetch(`/${item.product_id}/reviews/${item._id}`,
-      { method: 'PATCH' })
-      .then((response) => response.json())
-      .then((review) => {
-        helpful = review.helpful;
-      });
-  };
-
-  useEffect(() => {
-    if (helped) {
-      addHelpful();
-    }
-  }, [helped, helpful]);
 
   return (
     <div className="reviews-list-item">
@@ -48,12 +32,15 @@ const ReviewListItem = ({ item }) => {
           <div
             className="RLI-helpful-thumb"
             onKeyDown={() => setHelped(true)}
-            onClick={() => setHelped(true)}
+            onClick={() => {
+              addHelpful(item._id, helped);
+              setHelped(true);
+            }}
             role="button"
             tabIndex={0}
           >
             <i className={`${helped ? 'fas' : 'far'} fa-thumbs-up`} />
-            {helpful}
+            {item.helpful}
           </div>
         </div>
 
@@ -64,6 +51,7 @@ const ReviewListItem = ({ item }) => {
 
 ReviewListItem.propTypes = {
   item: propTypes.shape(propTypes.any).isRequired,
+  addHelpful: propTypes.func.isRequired,
 };
 
 export default ReviewListItem;
