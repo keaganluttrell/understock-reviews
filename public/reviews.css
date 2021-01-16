@@ -136,8 +136,8 @@ html,
   flex-direction: row;
   justify-content: space-between;
   padding: 0px 0px 20px 0px;
+  position: relative;
 }
-
 #reviews-mods #mod-container fieldset {
   display: flex;
   flex-direction: row;
@@ -160,8 +160,6 @@ html,
   padding-right: 4px;
   font-size: 12px;
 }
-/* WORK BELOW */
-
 
 fieldset {
   display: flex;
@@ -202,6 +200,11 @@ fieldset i {
   outline: none;
 }
 
+#mod-menu-dropdown-Sort div {
+  padding: 2px;
+  padding-left: 6px;
+}
+
 #mod-menu-dropdown-Rating {
   display: none;
   flex-direction: column;
@@ -216,8 +219,29 @@ fieldset i {
   z-index: 10;
 }
 
-.MFD-star-bg:hover {
+#reviews-filter-clear-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 9px;
+  padding-left: 10px;
+  left: 180px;
+  position: absolute;
+}
+
+#reviews-filter-clear {
+  background-color: transparent;
+  border: solid rgba(0, 0, 0, 0.319) 1px;
+  border-radius: 4px;
+  outline: none;
+  width: 100px;
+  padding: 6px;
+  text-align: center;
   cursor: pointer;
+  transition-duration: .5s;
+}
+#reviews-filter-clear:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .fieldset-option {
@@ -244,8 +268,6 @@ fieldset i {
   padding: 5px 5px 0px 7px;
   font-size: 16px;
 }
-
-/* WORK ABOVE */
 
 #reviews-list {
 width: 100%;
@@ -304,7 +326,7 @@ flex-direction: column;
   font-weight: 600;
   font-size: 16px;
   padding: 10px 0px 10px 0px;
-  color: black;
+  color: rgba(0, 0, 0, 0.709);
 }
 
 .RLI-body {
