@@ -12,7 +12,6 @@ const Reviews = () => {
     fetch(`/${productId}/reviews`)
       .then((response) => response.json())
       .then((reviews) => {
-        console.log(reviews);
         setList(reviews);
       });
   }, []);

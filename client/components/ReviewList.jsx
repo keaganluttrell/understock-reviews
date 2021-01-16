@@ -6,15 +6,13 @@ const ReviewList = (props) => {
   const { list } = props;
   return (
     <div id="reviews-list">
-      {list.map((item, i) => {
-        const key = `${i}a`;
-        return (
-          <ReviewListItem
-            item={item}
-            key={key}
-          />
-        );
-      })}
+      {list.map((item) => (
+        <ReviewListItem
+          item={item}
+          // eslint-disable-next-line no-underscore-dangle
+          key={item._id}
+        />
+      ))}
     </div>
   );
 };

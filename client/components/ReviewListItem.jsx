@@ -1,30 +1,41 @@
 import React from 'react';
+import moment from 'moment';
+import propTypes from 'prop-types';
 import Star from './Star';
-// import propTypes from 'prop-types';
 
-const ReviewListItem = () => (
+const ReviewListItem = ({ item }) => (
   <div className="reviews-list-item">
+
     <div className="RLI-top-line">
-      <Star />
-      <div className="RLI-verified">Verified Purchase</div>
+      <Star rating={item.rating} />
+      <div className="RLI-verified">
+        {item.verified_purchase ? 'Verified Purchase' : ''}
+      </div>
     </div>
-    <div className="RLI-title">Sample Title</div>
-    <div className="RLI-body">This is a sample review. It is used for demonstration purposes only. Please replace me with something useful.</div>
+    <div className="RLI-title">{item.review_title}</div>
+    <div className="RLI-body">{item.review_body}</div>
 
     <div className="RLI-bottom-line">
-      <div className="RLI-by-line">JJ McQuade December 1, 1978</div>
+      <div className="RLI-by-line">
+        {item.customer_name}
+        {' '}
+        {moment(item.review_date).format('LL')}
+      </div>
+
       <div className="RLI-helpful">
         Was this review helpful?
         <div className="RLI-helpful-thumb">
           <i className="far fa-thumbs-up" />
-          5
+          {item.helpful}
         </div>
       </div>
+
     </div>
   </div>
 );
 
-// ReviewListItem.propTypes = {
-// };
+ReviewListItem.propTypes = {
+  item: propTypes.shape(propTypes.any).isRequired,
+};
 
 export default ReviewListItem;
