@@ -14,6 +14,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/:product_id/reviews', (req, res) => {
   const product = req.params.product_id;
   Review.find({ product_id: product })
+    .sort('-review_date')
+    .limit(5)
+    .exec()
     .then((reviews) => res.send(reviews));
 });
 
