@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
 
-const Menu = ({ name, options }) => {
+const Menu = ({ name, options, handler }) => {
   const [active, setActive] = useState(false);
-  const [current, setCurrent] = useState(options[0]);
+  const [current, setCurrent] = useState(options[0].head);
 
   return (
     <div
@@ -30,13 +30,16 @@ const Menu = ({ name, options }) => {
           return (
             <div
               className="fieldset-option"
-              onKeyDown={() => setCurrent(option)}
-              onClick={() => setCurrent(option)}
+              onKeyDown={() => setCurrent(option.head)}
+              onClick={() => {
+                handler(option.body);
+                setCurrent(option.head);
+              }}
               role="button"
               tabIndex={0}
               key={key}
             >
-              {option}
+              {option.head}
             </div>
           );
         })}
@@ -49,6 +52,7 @@ const Menu = ({ name, options }) => {
 Menu.propTypes = {
   name: propTypes.string.isRequired,
   options: propTypes.arrayOf(propTypes.any).isRequired,
+  handler: propTypes.func.isRequired,
 };
 
 export default Menu;

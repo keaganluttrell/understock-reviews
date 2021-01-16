@@ -6,20 +6,27 @@ import Star from './Star';
 
 const productId = 99;
 const filterOptions = [
-  <div id="RFF-all">All</div>,
-  <Star rating={5} />,
-  <Star rating={4} />,
-  <Star rating={3} />,
-  <Star rating={2} />,
-  <Star rating={1} />,
+  { head: <div id="RFF-all">All</div>, body: 0 },
+  { head: <Star rating={5} />, body: 5 },
+  { head: <Star rating={4} />, body: 4 },
+  { head: <Star rating={3} />, body: 3 },
+  { head: <Star rating={2} />, body: 2 },
+  { head: <Star rating={1} />, body: 1 },
+];
+
+const sortOptions = [
+  { head: <div>Most Recent</div>, body: 'review_date' },
+  { head: <div>Most Helpful</div>, body: 'helpful' },
 ];
 
 const Reviews = () => {
   const [list, setList] = useState([]);
   const [limit, setLimit] = useState(5);
+  const [filter, setFilter] = useState(0);
+  const [sort, setSort] = useState('review_date');
 
   const getReviews = (num) => {
-    fetch(`/${productId}/reviews?limit=${num}`)
+    fetch(`/${productId}/reviews?limit=${num}&rating=${filter}&sort=${sort}`)
       .then((response) => response.json())
       .then((reviews) => {
         setList(reviews);
@@ -37,7 +44,7 @@ const Reviews = () => {
 
   useEffect(() => {
     getReviews(limit);
-  }, [limit]);
+  }, [limit, filter, sort]);
 
   return (
     <>
@@ -52,10 +59,15 @@ const Reviews = () => {
       </div>
 
       <div id="reviews-mods">
-        <Menu name="Rating" options={filterOptions} />
+        <Menu
+          name="Rating"
+          options={filterOptions}
+          handler={setFilter}
+        />
         <Menu
           name="Sort"
-          options={[<div>Most Recent</div>, <div>Most Helpful</div>]}
+          options={sortOptions}
+          handler={setSort}
         />
       </div>
       <ReviewList list={list} addHelpful={addHelpful} />

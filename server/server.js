@@ -12,11 +12,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/:product_id/reviews', (req, res) => {
-  const { limit } = req.query;
-
+  const { limit, rating, sort } = req.query;
   const product = req.params.product_id;
-  Review.find({ product_id: product })
-    .sort('-review_date')
+  Review.find({ product_id: product, rating: +rating || { $lt: 6 } })
+    .sort(`-${sort || 'review_date'}`)
     .limit(+limit)
     .exec()
     .then((reviews) => res.send(reviews));
