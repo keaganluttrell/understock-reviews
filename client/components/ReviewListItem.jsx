@@ -1,30 +1,57 @@
-import React from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { useState } from 'react';
+import moment from 'moment';
+import propTypes from 'prop-types';
 import Star from './Star';
-// import propTypes from 'prop-types';
 
-const ReviewListItem = () => (
-  <div className="reviews-list-item">
-    <div className="RLI-top-line">
-      <Star />
-      <div className="RLI-verified">Verified Purchase</div>
-    </div>
-    <div className="RLI-title">Sample Title</div>
-    <div className="RLI-body">This is a sample review. It is used for demonstration purposes only. Please replace me with something useful.</div>
+const ReviewListItem = ({ item, addHelpful }) => {
+  const [helped, setHelped] = useState(false);
 
-    <div className="RLI-bottom-line">
-      <div className="RLI-by-line">JJ McQuade December 1, 1978</div>
-      <div className="RLI-helpful">
-        Was this review helpful?
-        <div className="RLI-helpful-thumb">
-          <i className="far fa-thumbs-up" />
-          5
+  return (
+    <div className="reviews-list-item">
+
+      <div className="RLI-top-line">
+        <Star rating={item.rating} />
+        <div className="RLI-verified">
+          {item.verified_purchase ? 'Verified Purchase' : ''}
         </div>
       </div>
-    </div>
-  </div>
-);
 
-// ReviewListItem.propTypes = {
-// };
+      <div className="RLI-title">{item.review_title}</div>
+      <div className="RLI-body">{item.review_body}</div>
+
+      <div className="RLI-bottom-line">
+        <div className="RLI-by-line">
+          {item.customer_name}
+          {' '}
+          {moment(item.review_date).format('LL')}
+        </div>
+
+        <div className="RLI-helpful">
+          Was this review helpful?
+          <div
+            className="RLI-helpful-thumb"
+            onKeyDown={() => setHelped(true)}
+            onClick={() => {
+              addHelpful(item._id, helped);
+              setHelped(true);
+            }}
+            role="button"
+            tabIndex={0}
+          >
+            <i className={`${helped ? 'fas' : 'far'} fa-thumbs-up`} />
+            {item.helpful}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+ReviewListItem.propTypes = {
+  item: propTypes.shape(propTypes.any).isRequired,
+  addHelpful: propTypes.func.isRequired,
+};
 
 export default ReviewListItem;

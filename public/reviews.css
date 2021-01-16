@@ -19,7 +19,7 @@ html,
 #reviews-title {
   /* border: 2px solid black; */
   border-top: 1px solid  rgba(0, 0, 0, 0.705);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   padding: 15px 5px 15px 5px;
   color: black;
@@ -138,7 +138,7 @@ html,
   padding: 0px 0px 20px 0px;
 }
 
-#reviews-mods #mod-filter fieldset {
+#reviews-mods #mod-container fieldset {
   display: flex;
   flex-direction: row;
   width: 150px;
@@ -150,18 +150,13 @@ html,
   font-size: 12px;
   position: relative;
 }
-
-#reviews-mods #mod-sort fieldset {
- width: 150px;
- border-style: solid;
- border-radius: 5px;
- border-width: 1px;
- color: rgba(0, 0, 0, 0.705);
+#mod-container{
+  outline: none;
 }
 
 #reviews-mods legend {
-  padding-bottom: 6px;
-  padding-left: 4px;
+  padding-bottom: 3px;
+  padding-left: 3px;
   padding-right: 4px;
   font-size: 12px;
 }
@@ -172,13 +167,15 @@ fieldset {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start
+  align-items: flex-start;
+  cursor: pointer;
 }
 
-.r-menu-current {
+.fieldset-current {
   display: flex;
   flex-direction: row;
-  margin: -11px 0px 0px 0px;
+  margin: -7px 0px 0px 0px;
+  font-size: 16px;
 }
 
 .r-menu-caret {
@@ -190,7 +187,22 @@ fieldset i {
   color: rgba(0, 0, 0, 0.65);
 }
 
-#mod-menu-dropdown {
+#mod-menu-dropdown-Sort{
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  width: 170px;
+  height: fit-content;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  color: rgba(0, 0, 0, 0.405);
+  background-color: white;
+  z-index: 10;
+  outline: none;
+}
+
+#mod-menu-dropdown-Rating {
   display: none;
   flex-direction: column;
   position: absolute;
@@ -204,24 +216,33 @@ fieldset i {
   z-index: 10;
 }
 
-#MFD-default {
-  padding: 3px 10px 3px 15px;
-  cursor: pointer;
-}
 .MFD-star-bg:hover {
   cursor: pointer;
 }
 
-.MFD-star-bg {
-  padding-left: 5px;
+.fieldset-option {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  cursor: pointer;
 }
-.MFD-star-bg:last-child {
+.fieldset-option:last-child {
   padding-bottom: 5px;
 }
 
-.MFD-star-bg:hover, #MFD-default:hover {
+.fieldset-option:hover{
   background-color: rgba(0, 0, 0, .05);
+}
 
+.fieldset-current #RFF-all{
+  margin-top: -4px;
+}
+
+#RFF-all {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px 0px 7px;
+  font-size: 16px;
 }
 
 /* WORK ABOVE */
@@ -313,6 +334,7 @@ flex-direction: column;
   margin-left: 10px;
   border-radius: 3px;;
   transition-duration: .5s;
+  outline: none;
 }
 
 .RLI-helpful i{
@@ -336,6 +358,7 @@ flex-direction: column;
   flex-direction: row-reverse;
   align-items: center;
   margin-top: 40px;
+  margin-right: -10px;
 }
 
 #reviews-show-more {
@@ -346,6 +369,13 @@ flex-direction: column;
   padding: 5px 20px 5px 20px;
   /* border: 1px solid black; */
   transition-duration: .5s;
+  cursor: pointer;
+}
+
+#RSM-text {
+  background-color: transparent;
+  border: none;
+  outline: none;
   cursor: pointer;
 }
 
