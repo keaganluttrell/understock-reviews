@@ -7,14 +7,19 @@ const productId = 99;
 
 const Reviews = () => {
   const [list, setList] = useState([]);
+  const [limit, setLimit] = useState(5);
 
-  useEffect(() => {
-    fetch(`/${productId}/reviews`)
+  const getReviews = (num) => {
+    fetch(`/${productId}/reviews?limit=${num}`)
       .then((response) => response.json())
       .then((reviews) => {
         setList(reviews);
       });
-  }, []);
+  };
+
+  useEffect(() => {
+    getReviews(limit);
+  }, [limit]);
 
   return (
     <>
@@ -35,13 +40,24 @@ const Reviews = () => {
       <ReviewList list={list} />
 
       <div id="reviews-show-more">
-        <div id="RSM-text">Show More</div>
-        <i className="fas fa-angle-down" />
+        <button
+          type="button"
+          id="RSM-text"
+          onClick={() => setLimit(limit === 5 ? 10 : 5)}
+        >
+          Show More
+        </button>
+        <i className={limit === 5 ? 'fas fa-angle-down' : 'fas fa-angle-up'} />
       </div>
 
       <div id="reviews-list-compose">
-        <div className="reviews-list-button" id="RLB-see-all">See all Reviews</div>
-        <div className="reviews-list-button">Write a Review</div>
+        <div className="reviews-list-button" id="RLB-see-all">
+          See all Reviews
+        </div>
+
+        <div className="reviews-list-button">
+          Write a Review
+        </div>
       </div>
 
     </>

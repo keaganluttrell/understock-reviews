@@ -349,6 +349,13 @@ flex-direction: column;
   cursor: pointer;
 }
 
+#RSM-text {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 #reviews-show-more i {
   padding: 0px 10px 0px 10px;
   text-decoration: none;

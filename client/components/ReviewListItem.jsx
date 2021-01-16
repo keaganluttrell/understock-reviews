@@ -12,6 +12,7 @@ const ReviewListItem = ({ item }) => (
         {item.verified_purchase ? 'Verified Purchase' : ''}
       </div>
     </div>
+
     <div className="RLI-title">{item.review_title}</div>
     <div className="RLI-body">{item.review_body}</div>
 

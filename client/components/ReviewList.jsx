@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import propTypes from 'prop-types';
 import ReviewListItem from './ReviewListItem';
@@ -9,7 +10,6 @@ const ReviewList = (props) => {
       {list.map((item) => (
         <ReviewListItem
           item={item}
-          // eslint-disable-next-line no-underscore-dangle
           key={item._id}
         />
       ))}
