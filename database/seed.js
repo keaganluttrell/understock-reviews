@@ -1,10 +1,10 @@
 const Review = require('./Review');
 const data = require('./dataGenerator');
-
-// db.catch((e) => e);
+const db = require('./db');
 
 const seedDatabase = () => {
-  Review.create(data);
+  Review.create(data)
+    .then(() => db.close());
 };
 
 seedDatabase();
