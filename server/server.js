@@ -22,4 +22,14 @@ app.get('/:product_id/reviews', (req, res) => {
     .then((reviews) => res.send(reviews));
 });
 
+app.patch('/:product_id/reviews/:id', (req, res) => {
+  const reviewId = req.params.id;
+  Review.findOneAndUpdate(
+    { _id: reviewId },
+    { $inc: { helpful: 1 } },
+    { new: true, useFindAndModify: false },
+  )
+    .then((review) => res.send(review));
+});
+
 app.listen(PORT);

@@ -39,13 +39,16 @@ const Reviews = () => {
       </div>
       <ReviewList list={list} />
 
-      <div id="reviews-show-more">
+      <div
+        id="reviews-show-more"
+        style={{ display: list.length > 4 ? 'flex' : 'none' }}
+      >
         <button
           type="button"
           id="RSM-text"
           onClick={() => setLimit(limit === 5 ? 10 : 5)}
         >
-          Show More
+          {limit === 5 ? 'Show More' : 'Show Less'}
         </button>
         <i className={limit === 5 ? 'fas fa-angle-down' : 'fas fa-angle-up'} />
       </div>
