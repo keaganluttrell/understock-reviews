@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/LumberJackCasual/Reviews-Service#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "lorem-ipsum": "^2.0.3",
