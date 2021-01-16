@@ -25,8 +25,8 @@ const Reviews = () => {
   const [filter, setFilter] = useState(0);
   const [sort, setSort] = useState('review_date');
 
-  const getReviews = (num) => {
-    fetch(`/${productId}/reviews?limit=${num}&rating=${filter}&sort=${sort}`)
+  const getReviews = () => {
+    fetch(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
       .then((response) => response.json())
       .then((reviews) => {
         setList(reviews);
@@ -70,6 +70,14 @@ const Reviews = () => {
           handler={setSort}
         />
       </div>
+
+      <div
+        id="reviews-display-msg"
+        style={{ display: list.length ? 'block' : 'none' }}
+      >
+        {`1-${list.length} of 2101 reviews`}
+      </div>
+
       <ReviewList list={list} addHelpful={addHelpful} />
 
       <div
