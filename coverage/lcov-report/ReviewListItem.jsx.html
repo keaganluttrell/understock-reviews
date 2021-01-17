@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -121,11 +121,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,10 +145,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,16 +177,16 @@ import moment from 'moment';
 import propTypes from 'prop-types';
 import Star from './Star';
 &nbsp;
-const ReviewListItem = ({ item, addHelpful }) =&gt; {
-  const [helped, setHelped] = useState(false);
+const ReviewListItem = <span class="fstat-no" title="function not covered" >({</span> item, addHelpful }) =&gt; {
+  const [helped, setHelped] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div className="reviews-list-item"&gt;
 &nbsp;
       &lt;div className="RLI-top-line"&gt;
         &lt;Star rating={item.rating} /&gt;
         &lt;div className="RLI-verified"&gt;
-          {item.verified_purchase ? 'Verified Purchase' : <span class="branch-1 cbranch-no" title="branch not covered" >''}</span>
+          {item.verified_purchase ? 'Verified Purchase' : ''}
         &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
@@ -204,10 +204,10 @@ const ReviewListItem = ({ item, addHelpful }) =&gt; {
           Was this review helpful?
           &lt;div
             className="RLI-helpful-thumb"
-            onKeyDown={() =&gt; setHelped(true)}
-            onClick={() =&gt; {
-              addHelpful(item._id, helped);
-              setHelped(true);
+            onKeyDown={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setHelped(true)}</span>
+            onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >              addHelpful(item._id, helped);</span>
+<span class="cstat-no" title="statement not covered" >              setHelped(true);</span>
             }}
             role="button"
             tabIndex={0}
@@ -235,7 +235,7 @@ export default ReviewListItem;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Jan 17 2021 00:40:21 GMT-0600 (Central Standard Time)
+                at Sun Jan 17 2021 00:43:26 GMT-0600 (Central Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>
