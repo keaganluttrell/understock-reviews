@@ -102,7 +102,6 @@ const Reviews = () => {
           Write a Review
         </div>
       </div>
-
     </>
   );
 };
