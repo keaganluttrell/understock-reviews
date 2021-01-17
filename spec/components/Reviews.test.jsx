@@ -2,7 +2,8 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, fireEvent, screen } from '@testing-library/react';
 import Reviews from '../../client/components/Reviews';
-import Star from '../../client/components/Star'
+import Star from '../../client/components/Star';
+import data from '../data/sampleReviews';
 
 const productId = 99;
 const filterOptions = [

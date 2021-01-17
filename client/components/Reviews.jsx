@@ -3,6 +3,7 @@ import ReviewList from './ReviewList';
 import Menu from './Menu';
 import Graph from './Graph';
 import Star from './Star';
+import axios from 'axios';
 
 const productId = 99;
 const filterOptions = [
@@ -25,18 +26,15 @@ const Reviews = () => {
   const [sort, setSort] = useState('review_date');
 
   const getReviews = () => {
-    fetch(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
-      .then((response) => response.json())
+    axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
       .then((reviews) => {
-        setList(reviews);
+        setList(reviews.data);
       });
   };
 
   const addHelpful = (id, checked) => {
     if (!checked) {
-      fetch(`/${productId}/reviews/${id}`,
-        { method: 'PATCH' })
-        .then((response) => response.json())
+      axios.patch(`/${productId}/reviews/${id}`)
         .then(() => getReviews(limit));
     }
   };
