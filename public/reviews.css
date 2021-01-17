@@ -302,7 +302,7 @@ flex-direction: column;
 
 .RLI-rating-bottom {
   padding: 0px 5px 0px 5px;
-  color: rgb(174, 174, 174);
+  color: rgb(210, 210, 210);
   font-size: 18px;
   width: 87px;
   position: relative;
@@ -312,7 +312,7 @@ flex-direction: column;
   padding: 0px 5px 0px 5px;
   color: rgb(244, 186, 49);
   font-size: 18px;
-  width: 89px;
+  width: 90px;
   overflow: hidden;
   position: absolute;
 }

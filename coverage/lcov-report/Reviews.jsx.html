@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.05% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/21</span>
+                <span class='fraction'>14/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>4/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>3/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.05% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/21</span>
+                <span class='fraction'>14/21</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -187,33 +187,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -295,21 +295,21 @@ const sortOptions = [
   { head: &lt;div&gt;Most Helpful&lt;/div&gt;, body: 'helpful' },
 ];
 &nbsp;
-const Reviews = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-  const [list, setList] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
-  const [limit, setLimit] = <span class="cstat-no" title="statement not covered" >useState(5);</span>
-  const [filter, setFilter] = <span class="cstat-no" title="statement not covered" >useState(0);</span>
-  const [sort, setSort] = <span class="cstat-no" title="statement not covered" >useState('review_date');</span>
+const Reviews = () =&gt; {
+  const [list, setList] = useState([]);
+  const [limit, setLimit] = useState(5);
+  const [filter, setFilter] = useState(0);
+  const [sort, setSort] = useState('review_date');
 &nbsp;
-  const getReviews = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    fetch(`/${productId}/reviews?limit=${limit}&amp;rating=${filter}&amp;sort=${sort}`)</span>
+  const getReviews = () =&gt; {
+    fetch(`/${productId}/reviews?limit=${limit}&amp;rating=${filter}&amp;sort=${sort}`)
       .then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
       .then(<span class="fstat-no" title="function not covered" >(r</span>eviews) =&gt; {
 <span class="cstat-no" title="statement not covered" >        setList(reviews);</span>
       });
   };
 &nbsp;
-  const addHelpful = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>d, checked) =&gt; {</span>
+  const addHelpful = <span class="fstat-no" title="function not covered" >(i</span>d, checked) =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (!checked) {</span>
 <span class="cstat-no" title="statement not covered" >      fetch(`/${productId}/reviews/${id}`,</span>
         { method: 'PATCH' })
@@ -318,11 +318,11 @@ const Reviews = <span class="fstat-no" title="function not covered" >()</span> =
     }
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    getReviews();</span>
+  useEffect(() =&gt; {
+    getReviews();
   }, [limit, filter, sort]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;div id="reviews-title"&gt;Reviews&lt;/div&gt;
       &lt;div id="reviews-header"&gt;
@@ -349,7 +349,7 @@ const Reviews = <span class="fstat-no" title="function not covered" >()</span> =
 &nbsp;
       &lt;div
         id="reviews-display-msg"
-        style={{ display: list.length ? 'block' : 'none' }}
+        style={{ display: list.length ? <span class="branch-0 cbranch-no" title="branch not covered" >'block' </span>: 'none' }}
       &gt;
         {`1-${list.length} of 2101 reviews`}
       &lt;/div&gt;
@@ -358,16 +358,16 @@ const Reviews = <span class="fstat-no" title="function not covered" >()</span> =
 &nbsp;
       &lt;div
         id="reviews-show-more"
-        style={{ display: list.length &gt; 4 ? 'flex' : 'none' }}
+        style={{ display: list.length &gt; 4 ? <span class="branch-0 cbranch-no" title="branch not covered" >'flex' </span>: 'none' }}
       &gt;
         &lt;button
           type="button"
           id="RSM-text"
           onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setLimit(limit === 5 ? 10 : 5)}</span>
         &gt;
-          {limit === 5 ? 'Show More' : 'Show Less'}
+          {limit === 5 ? 'Show More' : <span class="branch-1 cbranch-no" title="branch not covered" >'Show Less'}</span>
         &lt;/button&gt;
-        &lt;i className={limit === 5 ? 'fas fa-angle-down' : 'fas fa-angle-up'} /&gt;
+        &lt;i className={limit === 5 ? 'fas fa-angle-down' : <span class="branch-1 cbranch-no" title="branch not covered" >'fas fa-angle-up'}</span> /&gt;
       &lt;/div&gt;
 &nbsp;
       &lt;div id="reviews-list-compose"&gt;
@@ -391,7 +391,7 @@ export default Reviews;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Jan 16 2021 23:48:35 GMT-0600 (Central Standard Time)
+                at Sun Jan 17 2021 12:01:06 GMT-0600 (Central Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>

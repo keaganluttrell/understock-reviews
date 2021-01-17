@@ -1,6 +1,4 @@
-// __tests__/fetch.test.js
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '@testing-library/jest-dom';
 import { render, fireEvent, screen } from '@testing-library/react';
 import ReviewListItem from '../../client/components/ReviewListItem';

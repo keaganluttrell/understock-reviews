@@ -1,29 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1610903780164" clover="3.2.0">
-  <project timestamp="1610903780164" name="All files">
-    <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8" elements="33" coveredelements="33" complexity="0" loc="17" ncloc="17" packages="1" files="2" classes="2"/>
-    <file name="Menu.jsx" path="/Users/keaganluttrell/Desktop/docs/hack-reactor/capstone-fec/Reviews-Service/client/components/Menu.jsx">
-      <metrics statements="14" coveredstatements="14" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="5" count="14" type="stmt"/>
-      <line num="6" count="14" type="stmt"/>
-      <line num="8" count="14" type="stmt"/>
-      <line num="12" count="2" type="stmt"/>
-      <line num="13" count="8" type="stmt"/>
-      <line num="32" count="56" type="stmt"/>
-      <line num="33" count="56" type="stmt"/>
+<coverage generated="1610906466727" clover="3.2.0">
+  <project timestamp="1610906466727" name="All files">
+    <metrics statements="36" coveredstatements="29" conditionals="16" coveredconditionals="7" methods="15" coveredmethods="9" elements="67" coveredelements="45" complexity="0" loc="36" ncloc="36" packages="1" files="5" classes="5"/>
+    <file name="Bar.jsx" path="/Users/keaganluttrell/Desktop/docs/hack-reactor/capstone-fec/Reviews-Service/client/components/Bar.jsx">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="5" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+    </file>
+    <file name="Graph.jsx" path="/Users/keaganluttrell/Desktop/docs/hack-reactor/capstone-fec/Reviews-Service/client/components/Graph.jsx">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+    </file>
+    <file name="ReviewListItem.jsx" path="/Users/keaganluttrell/Desktop/docs/hack-reactor/capstone-fec/Reviews-Service/client/components/ReviewListItem.jsx">
+      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="4" type="stmt"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
       <line num="36" count="1" type="stmt"/>
-      <line num="38" count="4" type="stmt"/>
-      <line num="39" count="4" type="stmt"/>
-      <line num="61" count="1" type="stmt"/>
-      <line num="62" count="1" type="stmt"/>
-      <line num="72" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="52" count="2" type="stmt"/>
+    </file>
+    <file name="Reviews.jsx" path="/Users/keaganluttrell/Desktop/docs/hack-reactor/capstone-fec/Reviews-Service/client/components/Reviews.jsx">
+      <metrics statements="21" coveredstatements="14" conditionals="12" coveredconditionals="4" methods="9" coveredmethods="3"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="29" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
+      <line num="44" count="1" type="stmt"/>
+      <line num="45" count="1" type="stmt"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="89" count="0" type="cond" truecount="0" falsecount="2"/>
     </file>
     <file name="Star.jsx" path="/Users/keaganluttrell/Desktop/docs/hack-reactor/capstone-fec/Reviews-Service/client/components/Star.jsx">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="5" count="12" type="stmt"/>
-      <line num="23" count="1" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="14" type="stmt"/>
+      <line num="23" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
