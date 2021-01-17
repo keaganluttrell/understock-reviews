@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import ReviewList from './ReviewList';
 import Menu from './Menu';
 import Graph from './Graph';
 import Star from './Star';
-import axios from 'axios';
 
 const productId = 99;
 const filterOptions = [

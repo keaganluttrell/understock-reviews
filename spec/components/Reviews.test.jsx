@@ -1,9 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, fireEvent, screen } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+import axios from 'axios';
 import Reviews from '../../client/components/Reviews';
 import Star from '../../client/components/Star';
-import data from '../data/sampleReviews';
 
 const productId = 99;
 const filterOptions = [
@@ -18,8 +19,22 @@ const sortOptions = [
   { head: <div>Most Recent</div>, body: 'review_date' },
   { head: <div>Most Helpful</div>, body: 'helpful' },
 ];
+let container;
+beforeEach(() => {
+  container = document.createElement('div');
+  document.body.appendChild(container);
+});
 
-test('test', () => {
-  const container = document.createElement('div');
-  render(<Reviews />, container);
+afterEach(() => {
+  document.body.removeChild(container);
+  container = null;
 })
+
+
+describe('Reviews', () => {
+  test('will update lists on render', () => {
+    act(() => {
+      render(<Reviews />, container);
+    });
+  });
+});
