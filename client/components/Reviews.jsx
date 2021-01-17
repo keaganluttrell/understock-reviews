@@ -13,7 +13,6 @@ const filterOptions = [
   { head: <Star rating={2} />, body: 2 },
   { head: <Star rating={1} />, body: 1 },
 ];
-
 const sortOptions = [
   { head: <div>Most Recent</div>, body: 'review_date' },
   { head: <div>Most Helpful</div>, body: 'helpful' },
@@ -43,7 +42,7 @@ const Reviews = () => {
   };
 
   useEffect(() => {
-    getReviews(limit);
+    getReviews();
   }, [limit, filter, sort]);
 
   return (

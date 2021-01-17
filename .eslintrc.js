@@ -20,4 +20,7 @@ module.exports = {
   ],
   rules: {
   },
+  ignorePatterns: [
+    'spec',
+  ],
 };
