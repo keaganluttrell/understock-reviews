@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import ReviewList from './ReviewList';
 import Menu from './Menu';
 import Graph from './Graph';
@@ -13,7 +14,6 @@ const filterOptions = [
   { head: <Star rating={2} />, body: 2 },
   { head: <Star rating={1} />, body: 1 },
 ];
-
 const sortOptions = [
   { head: <div>Most Recent</div>, body: 'review_date' },
   { head: <div>Most Helpful</div>, body: 'helpful' },
@@ -26,24 +26,21 @@ const Reviews = () => {
   const [sort, setSort] = useState('review_date');
 
   const getReviews = () => {
-    fetch(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
-      .then((response) => response.json())
+    axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
       .then((reviews) => {
-        setList(reviews);
+        setList(reviews.data);
       });
   };
 
   const addHelpful = (id, checked) => {
     if (!checked) {
-      fetch(`/${productId}/reviews/${id}`,
-        { method: 'PATCH' })
-        .then((response) => response.json())
+      axios.patch(`/${productId}/reviews/${id}`)
         .then(() => getReviews(limit));
     }
   };
 
   useEffect(() => {
-    getReviews(limit);
+    getReviews();
   }, [limit, filter, sort]);
 
   return (
@@ -103,7 +100,6 @@ const Reviews = () => {
           Write a Review
         </div>
       </div>
-
     </>
   );
 };

@@ -20,4 +20,8 @@ module.exports = {
   ],
   rules: {
   },
+  ignorePatterns: [
+    'spec',
+    '__mocks__',
+  ],
 };
