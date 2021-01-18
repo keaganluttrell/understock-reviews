@@ -341,6 +341,26 @@ flex-direction: column;
   padding: 10px 0px 10px 0px;
 }
 
+.RLI-images {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  position: relative;
+  height: 90px;
+}
+
+.RLI-images img {
+  margin-right: 5px;
+  height: 90px;
+  transition-duration: .5s;
+}
+
+.RLI-images img:hover {
+  height: 270px;
+  position: sticky;
+  z-index: 10;
+}
+
 .RLI-bottom-line {
   display: flex;
   flex-direction: row;
@@ -348,7 +368,7 @@ flex-direction: column;
   justify-content: space-between;
   padding-bottom: 15px;
   font-size: 14px;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .RLI-helpful {

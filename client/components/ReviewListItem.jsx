@@ -20,6 +20,10 @@ const ReviewListItem = ({ item, addHelpful }) => {
       <div className="RLI-title">{item.review_title}</div>
       <div className="RLI-body">{item.review_body}</div>
 
+      <div className="RLI-images">
+        {item.images.map((url) => <img src={url} alt="product" />)}
+      </div>
+
       <div className="RLI-bottom-line">
         <div className="RLI-by-line">
           {item.customer_name}

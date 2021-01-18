@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1610948721918" clover="3.2.0">
-  <project timestamp="1610948721918" name="All files">
-    <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3" elements="14" coveredelements="13" complexity="0" loc="7" ncloc="7" packages="1" files="1" classes="1"/>
+<coverage generated="1610989843364" clover="3.2.0">
+  <project timestamp="1610989843364" name="All files">
+    <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4" elements="16" coveredelements="16" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1"/>
     <file name="ReviewListItem.jsx" path="/Users/keaganluttrell/Desktop/docs/hack-reactor/capstone-fec/Reviews-Service/client/components/ReviewListItem.jsx">
-      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="8" count="4" type="stmt"/>
-      <line num="10" count="4" type="stmt"/>
-      <line num="34" count="1" type="stmt"/>
-      <line num="36" count="1" type="stmt"/>
-      <line num="37" count="1" type="stmt"/>
-      <line num="52" count="1" type="stmt"/>
+      <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="8" count="24" type="stmt"/>
+      <line num="10" count="24" type="stmt"/>
+      <line num="24" count="32" type="stmt"/>
+      <line num="38" count="1" type="stmt"/>
+      <line num="40" count="1" type="stmt"/>
+      <line num="41" count="1" type="stmt"/>
+      <line num="56" count="3" type="stmt"/>
     </file>
   </project>
 </coverage>
