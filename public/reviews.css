@@ -28,11 +28,12 @@ html,
 
 #reviews-header{
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: auto 320px;
   height: fit-content;
 }
 
 #reviews-graph {
+  grid-column: 1;;
   display: flex;
   flex-direction: column;
 }
@@ -117,10 +118,26 @@ html,
 }
 
 #reviews-gallery {
-  display: grid;
-  background-color: lightblue;
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.reviews-gallery-img {
+  height: 95px;
+  width: 85px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.reviews-gallery-img img {
+  height: 95px;
 }
 
 #reviews-filter-title{

@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReviewList from './ReviewList';
 import Menu from './Menu';
 import Graph from './Graph';
+import Gallery from './Gallery';
 import Star from './Star';
 
 const productId = 99;
@@ -48,7 +49,7 @@ const Reviews = () => {
       <div id="reviews-title">Reviews</div>
       <div id="reviews-header">
         <Graph />
-        <div id="reviews-gallery">GALLERY</div>
+        <Gallery />
       </div>
 
       <div id="reviews-filter-title">
