@@ -12,7 +12,14 @@ const ReviewListItem = ({ item, addHelpful }) => {
 
       <div className="RLI-top-line">
         <Star rating={item.rating} />
-        <div className="RLI-verified">
+        <div
+          className="RLI-verified"
+          style={{
+            borderLeft: item.verified_purchase
+              ? 'solid 1px rgba(139, 138, 138, 0.607)'
+              : 'none',
+          }}
+        >
           {item.verified_purchase ? 'Verified Purchase' : ''}
         </div>
       </div>
@@ -21,7 +28,7 @@ const ReviewListItem = ({ item, addHelpful }) => {
       <div className="RLI-body">{item.review_body}</div>
 
       <div className="RLI-images">
-        {item.images.map((url) => <img src={url} alt="product" />)}
+        {item.images.map((url) => <img src={url} alt="product" key={url} />)}
       </div>
 
       <div className="RLI-bottom-line">
