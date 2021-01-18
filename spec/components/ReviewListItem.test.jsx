@@ -20,6 +20,7 @@ const item = {
   "rating": 3,
   "review_date": "2018-09-23T05:00:00.000Z",
   "__v": 0
+
 }
 
 describe('Review List Items', () => {
@@ -38,5 +39,6 @@ describe('Review List Items', () => {
     screen.getByText('Verified Purchase');
   });
 });
+
 
 
