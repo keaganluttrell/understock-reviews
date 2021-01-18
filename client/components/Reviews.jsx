@@ -5,6 +5,7 @@ import Menu from './Menu';
 import Graph from './Graph';
 import Gallery from './Gallery';
 import Star from './Star';
+import Title from './Title';
 
 const productId = 99;
 const filterOptions = [
@@ -21,6 +22,7 @@ const sortOptions = [
 ];
 
 const Reviews = () => {
+  const [display, setDisplay] = useState(false);
   const [list, setList] = useState([]);
   const [limit, setLimit] = useState(5);
   const [filter, setFilter] = useState(0);
@@ -46,60 +48,72 @@ const Reviews = () => {
 
   return (
     <>
-      <div id="reviews-title">Reviews</div>
-      <div id="reviews-header">
-        <Graph />
-        <Gallery />
-      </div>
-
-      <div id="reviews-filter-title">
-        Filter Reviews
-      </div>
-
-      <div id="reviews-mods">
-        <Menu
-          name="Rating"
-          options={filterOptions}
-          handler={setFilter}
-        />
-        <Menu
-          name="Sort"
-          options={sortOptions}
-          handler={setSort}
-        />
-      </div>
+      <Title
+        rating={4.5}
+        display={display}
+        setDisplay={setDisplay}
+      />
 
       <div
-        id="reviews-display-msg"
-        style={{ display: list.length ? 'block' : 'none' }}
+        id="reviews-content"
+        style={{ display: display ? 'flex' : 'none' }}
       >
-        {`1-${list.length} of 2101 reviews`}
-      </div>
 
-      <ReviewList list={list} addHelpful={addHelpful} />
+        <div id="reviews-header">
+          <Graph />
+          <Gallery />
+        </div>
 
-      <div
-        id="reviews-show-more"
-        style={{ display: list.length > 4 ? 'flex' : 'none' }}
-      >
-        <button
-          type="button"
-          id="RSM-text"
-          onClick={() => setLimit(limit === 5 ? 10 : 5)}
+        <div id="reviews-filter-title">
+          Filter Reviews
+        </div>
+
+        <div id="reviews-mods">
+          <Menu
+            name="Rating"
+            options={filterOptions}
+            handler={setFilter}
+          />
+          <Menu
+            name="Sort"
+            options={sortOptions}
+            handler={setSort}
+          />
+        </div>
+
+        <div
+          id="reviews-display-msg"
+          style={{ display: list.length ? 'block' : 'none' }}
         >
-          {limit === 5 ? 'Show More' : 'Show Less'}
-        </button>
-        <i className={limit === 5 ? 'fas fa-angle-down' : 'fas fa-angle-up'} />
-      </div>
-
-      <div id="reviews-list-compose">
-        <div className="reviews-list-button" id="RLB-see-all">
-          See all Reviews
+          {`1-${list.length} of 2101 reviews`}
         </div>
 
-        <div className="reviews-list-button">
-          Write a Review
+        <ReviewList list={list} addHelpful={addHelpful} />
+
+        <div
+          id="reviews-show-more"
+          style={{ display: list.length > 4 ? 'flex' : 'none' }}
+        >
+          <button
+            type="button"
+            id="RSM-text"
+            onClick={() => setLimit(limit === 5 ? 10 : 5)}
+          >
+            {limit === 5 ? 'Show More' : 'Show Less'}
+          </button>
+          <i className={limit === 5 ? 'fas fa-angle-down' : 'fas fa-angle-up'} />
         </div>
+
+        <div id="reviews-list-compose">
+          <div className="reviews-list-button" id="RLB-see-all">
+            See all Reviews
+          </div>
+
+          <div className="reviews-list-button">
+            Write a Review
+          </div>
+        </div>
+
       </div>
     </>
   );
