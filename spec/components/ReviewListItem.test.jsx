@@ -3,7 +3,6 @@ import '@testing-library/jest-dom';
 import { render, fireEvent, screen } from '@testing-library/react';
 import ReviewListItem from '../../client/components/ReviewListItem';
 
-
 const item = {
   "helpful": 2,
   "verified_purchase": true,
@@ -20,7 +19,6 @@ const item = {
   "rating": 3,
   "review_date": "2018-09-23T05:00:00.000Z",
   "__v": 0
-
 }
 
 describe('Review List Items', () => {

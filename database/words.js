@@ -88,6 +88,8 @@ const adjectives = [
   'jokingly',
   'impressed',
   'hates',
+  'what',
+  'when',
 ];
 
 const adverbs = [
@@ -97,6 +99,7 @@ const adverbs = [
   'egrigious',
   'grossly',
   'yes',
+  'are you',
 ];
 
 const bridge = [
@@ -112,6 +115,7 @@ const bridge = [
   'who would have',
   'not today',
   'under',
+  'waiting for',
 ];
 
 const nouns = [
@@ -134,6 +138,8 @@ const nouns = [
   'neighbor',
   'it',
   'pay this',
+  'do it',
+  'na regrets',
 ];
 
 module.exports = {

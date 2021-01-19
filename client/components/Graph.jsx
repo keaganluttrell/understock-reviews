@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
 // import propTypes from 'prop-types';
+import React from 'react';
 import Bar from './Bar';
 import Star from './Star';
 
 const Graph = ({ meta }) => (
   <div id="reviews-graph">
+
     <div id="reviews-graph-header">
       <div id="RGH-average">{meta.avgRating}</div>
       <div id="RGH-stars-count">
@@ -13,6 +14,7 @@ const Graph = ({ meta }) => (
         <div className="RGH-count">{`${meta.totalReviews} Reviews`}</div>
       </div>
     </div>
+
     <div id="reviews-graph-body">
       <Bar
         rating={5}

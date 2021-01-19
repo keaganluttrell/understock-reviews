@@ -86,7 +86,7 @@ const Reviews = ({ productId, meta }) => {
           id="reviews-display-msg"
           style={{ display: list.length ? 'block' : 'none' }}
         >
-          {`1-${list.length} of 2101 reviews`}
+          {`1-${list.length} of ${meta.totalReviews} reviews`}
         </div>
 
         <ReviewList list={list} addHelpful={addHelpful} />
