@@ -9,7 +9,7 @@ const ReviewListItem = ({ item, addHelpful }) => {
   const [helped, setHelped] = useState(false);
 
   return (
-    <div className="reviews-list-item">
+    <div className="reviews-list-item" id={item._id}>
 
       <div className="RLI-top-line">
         <Star rating={item.rating} />
