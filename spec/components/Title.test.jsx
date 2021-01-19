@@ -7,7 +7,6 @@ describe('Title', () => {
 
   const mockDispay = jest.fn(x => x);
 
-
   test('Should toggle content display', () => {
     render(<Title rating={4.5} display={false} setDisplay={mockDispay} />);
     const title = document.getElementById('reviews-title');
