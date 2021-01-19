@@ -1,8 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, fireEvent, screen } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
-import axios from 'axios';
+import 'regenerator-runtime/runtime';
+import { render, screen } from '@testing-library/react';
 import Reviews from '../../client/components/Reviews';
 import Star from '../../client/components/Star';
 
@@ -28,13 +27,11 @@ beforeEach(() => {
 afterEach(() => {
   document.body.removeChild(container);
   container = null;
-})
-
+});
 
 describe('Reviews', () => {
-  test('will update lists on render', () => {
-    act(() => {
-      render(<Reviews />, container);
-    });
+  test('will update lists on render', async () => {
+    render(<Reviews />, container);
+    expect(await screen.findByText('Reviews')).toBeInTheDocument();
   });
 });

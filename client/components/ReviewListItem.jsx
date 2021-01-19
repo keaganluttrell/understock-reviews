@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react';
 import moment from 'moment';
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 import Star from './Star';
 
 const ReviewListItem = ({ item, addHelpful }) => {
@@ -60,9 +61,9 @@ const ReviewListItem = ({ item, addHelpful }) => {
   );
 };
 
-ReviewListItem.propTypes = {
-  item: propTypes.shape(propTypes.any).isRequired,
-  addHelpful: propTypes.func.isRequired,
-};
+// ReviewListItem.propTypes = {
+//   item: propTypes.shape(propTypes.any).isRequired,
+//   addHelpful: propTypes.func.isRequired,
+// };
 
 export default ReviewListItem;
