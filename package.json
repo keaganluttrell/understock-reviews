@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/LumberJackCasual/Reviews-Service#readme",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.10",
     "axios": "^0.21.1",
     "babel-jest": "^26.6.3",
     "body-parser": "^1.19.0",
