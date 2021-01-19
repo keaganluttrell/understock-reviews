@@ -18,10 +18,10 @@ const sortOptions = [
 ];
 
 describe('Filter Menu', () => {
-  const handler = jest.fn((x) => x);
+  const handler = jest.fn((arg) => arg);
   test('should pass an option to filter method in Reviews', () => {
     render(<Menu
-      name="Rating"
+      name='Rating'
       options={filterOptions}
       handler={handler}
     />);
@@ -34,7 +34,7 @@ describe('Filter Menu', () => {
 
   test('should be able to clear all results', () => {
     render(<Menu
-      name="Rating"
+      name='Rating'
       options={filterOptions}
       handler={handler}
     />);
@@ -52,7 +52,7 @@ describe('Sort Menu', () => {
   const handler = jest.fn((arg) => arg);
   test('should pass an option to sort method in Reviews', () => {
     render(<Menu
-      name="Rating"
+      name='Sort'
       options={sortOptions}
       handler={handler}
     />);
