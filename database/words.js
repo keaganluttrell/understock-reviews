@@ -83,17 +83,20 @@ const adjectives = [
   'mediocre',
   'expected',
   'could have been',
-  '',
-  '',
-  '',
+  'guessed',
+  'as much',
+  'jokingly',
+  'impressed',
+  'hates',
 ];
 
 const adverbs = [
-  '',
+  'no',
   'way',
   'too',
   'egrigious',
   'grossly',
+  'yes',
 ];
 
 const bridge = [
@@ -105,8 +108,10 @@ const bridge = [
   'not enough',
   'missed the',
   'over my',
-  '',
-  '',
+  'seriously though',
+  'who would have',
+  'not today',
+  'under',
 ];
 
 const nouns = [
@@ -124,8 +129,11 @@ const nouns = [
   'mower',
   'car',
   'deck',
-  '',
-  '',
+  'drive way',
+  'cooler',
+  'neighbor',
+  'it',
+  'pay this',
 ];
 
 module.exports = {

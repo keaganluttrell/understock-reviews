@@ -1,8 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 import Star from './Star';
 
-const Title = ({ rating, display, setDisplay }) => (
+const Title = ({
+  rating,
+  totalReviews,
+  display,
+  setDisplay,
+}) => (
   <div
     id="reviews-title"
     role="button"
@@ -18,17 +24,18 @@ const Title = ({ rating, display, setDisplay }) => (
     >
       <div id="RTS-rating">{rating}</div>
       <Star rating={rating} />
-      <div id="RTS-count"> 2,101 Reviews</div>
+      <div id="RTS-count">{`${totalReviews} Reviews`}</div>
     </div>
 
     <i className={`fas fa-chevron-${display ? 'up' : 'down'}`} />
   </div>
 );
 
-Title.propTypes = {
-  rating: propTypes.number.isRequired,
-  display: propTypes.bool.isRequired,
-  setDisplay: propTypes.func.isRequired,
-};
+// Title.propTypes = {
+//   rating: propTypes.number.isRequired,
+//   totalReviews: propTypes.number.isRequired,
+//   display: propTypes.bool.isRequired,
+//   setDisplay: propTypes.func.isRequired,
+// };
 
 export default Title;

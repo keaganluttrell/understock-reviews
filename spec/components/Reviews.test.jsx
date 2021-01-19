@@ -5,7 +5,19 @@ import { render, screen } from '@testing-library/react';
 import Reviews from '../../client/components/Reviews';
 import Star from '../../client/components/Star';
 
-const productId = 99;
+
+
+const meta = {
+  product_id: 99,
+  avgRating: 2.7,
+  totalReviews: 98,
+  oneStarReviews: 18,
+  twoStarReviews: 31,
+  threeStarReviews: 26,
+  fourStarReviews: 10,
+  fiveStarReviews: 13,
+};
+
 const filterOptions = [
   { head: <div id="RFF-all">All</div>, body: 0 },
   { head: <Star rating={5} />, body: 5 },
@@ -31,7 +43,7 @@ afterEach(() => {
 
 describe('Reviews', () => {
   test('will update lists on render', async () => {
-    render(<Reviews />, container);
+    render(<Reviews productId={99} meta={meta} />, container);
     expect(await screen.findByText('Reviews')).toBeInTheDocument();
   });
 });

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList';
@@ -7,7 +8,6 @@ import Gallery from './Gallery';
 import Star from './Star';
 import Title from './Title';
 
-const productId = 99;
 const filterOptions = [
   { head: <div id="RFF-all">All</div>, body: 0 },
   { head: <Star rating={5} />, body: 5 },
@@ -21,7 +21,7 @@ const sortOptions = [
   { head: <div>Most Helpful</div>, body: 'helpful' },
 ];
 
-const Reviews = () => {
+const Reviews = ({ productId, meta }) => {
   const [display, setDisplay] = useState(false);
   const [list, setList] = useState([]);
   const [limit, setLimit] = useState(5);
@@ -49,7 +49,8 @@ const Reviews = () => {
   return (
     <>
       <Title
-        rating={4.5}
+        rating={meta.avgRating}
+        totalReviews={meta.totalReviews}
         display={display}
         setDisplay={setDisplay}
       />
@@ -60,7 +61,7 @@ const Reviews = () => {
       >
 
         <div id="reviews-header">
-          <Graph />
+          <Graph meta={meta} />
           <Gallery />
         </div>
 
