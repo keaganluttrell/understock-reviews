@@ -27,6 +27,7 @@ const Reviews = ({ productId, meta }) => {
   const [limit, setLimit] = useState(5);
   const [filter, setFilter] = useState(0);
   const [sort, setSort] = useState('review_date');
+  const [gallery, setGallery] = useState([]);
 
   const getReviews = () => {
     axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
@@ -38,7 +39,7 @@ const Reviews = ({ productId, meta }) => {
   const getImages = () => {
     axios.get(`/${productId}/reviews/images`)
       .then((images) => {
-        console.log(images.data);
+        setGallery(images.data);
       });
   };
 
@@ -73,7 +74,7 @@ const Reviews = ({ productId, meta }) => {
 
         <div id="reviews-header">
           <Graph meta={meta} />
-          <Gallery />
+          <Gallery gallery={gallery} />
         </div>
 
         <div id="reviews-filter-title">

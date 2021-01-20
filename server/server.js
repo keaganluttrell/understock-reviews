@@ -24,6 +24,7 @@ app.get('/:product_id/reviews', (req, res) => {
 app.get('/:product_id/reviews/images', (req, res) => {
   const product = req.params.product_id;
   Review.find({ product_id: product, 'images.0': { $exists: true } })
+    .sort('-review_date')
     .limit(6)
     .exec()
     .then((images) => res.send(images));
