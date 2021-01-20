@@ -29,6 +29,7 @@ const Reviews = ({ productId, meta }) => {
   const [filter, setFilter] = useState(0);
   const [sort, setSort] = useState('review_date');
   const [gallery, setGallery] = useState([]);
+  const [modal, setModal] = useState(null);
 
   const getReviews = () => {
     axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
@@ -69,13 +70,16 @@ const Reviews = ({ productId, meta }) => {
       />
 
       <div
-        id="reviews-content"
+        id={modal ? 'reviews-content-locked' : 'reviews-content'}
         style={{ display: display ? 'flex' : 'none' }}
       >
 
         <div id="reviews-header">
           <Graph meta={meta} />
-          <Gallery gallery={gallery} />
+          <Gallery
+            gallery={gallery}
+            setModal={setModal}
+          />
         </div>
 
         <div id="reviews-filter-title">
@@ -130,7 +134,7 @@ const Reviews = ({ productId, meta }) => {
 
       </div>
 
-      <Modal />
+      <Modal item={modal} setModal={setModal} addHelpful={addHelpful} />
     </>
   );
 };
