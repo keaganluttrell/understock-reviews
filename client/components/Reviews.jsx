@@ -106,7 +106,7 @@ const Reviews = ({ productId, meta }) => {
           {`1-${list.length} of ${meta.totalReviews} reviews`}
         </div>
 
-        <ReviewList list={list} addHelpful={addHelpful} />
+        <ReviewList list={list} addHelpful={addHelpful} setModal={setModal} />
 
         <div
           id="reviews-show-more"
