@@ -21,6 +21,14 @@ app.get('/:product_id/reviews', (req, res) => {
     .then((reviews) => res.send(reviews));
 });
 
+app.get('/:product_id/reviews/images', (req, res) => {
+  const product = req.params.product_id;
+  Review.find({ product_id: product, 'images.0': { $exists: true } })
+    .limit(6)
+    .exec()
+    .then((images) => res.send(images));
+});
+
 app.patch('/:product_id/reviews/:id', (req, res) => {
   const reviewId = req.params.id;
   Review.findOneAndUpdate(

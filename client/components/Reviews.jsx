@@ -35,6 +35,13 @@ const Reviews = ({ productId, meta }) => {
       });
   };
 
+  const getImages = () => {
+    axios.get(`/${productId}/reviews/images`)
+      .then((images) => {
+        console.log(images.data);
+      });
+  };
+
   const addHelpful = (id, checked) => {
     if (!checked) {
       axios.patch(`/${productId}/reviews/${id}`)
@@ -45,6 +52,10 @@ const Reviews = ({ productId, meta }) => {
   useEffect(() => {
     getReviews();
   }, [limit, filter, sort]);
+
+  useEffect(() => {
+    getImages();
+  }, [productId]);
 
   return (
     <>
