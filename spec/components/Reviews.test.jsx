@@ -31,18 +31,21 @@ describe('Reviews', () => {
 
   test('content should not be visible on render', () => {
     const content = document.getElementById('reviews-content');
+
     expect(content).not.toBeVisible();
   });
 
   test('content should be visible after title bar is clicked', () => {
     const content = document.getElementById('reviews-content');
     const titleBar = document.getElementById('reviews-title');
+
     fireEvent.click(titleBar);
     expect(content).toBeVisible();
   });
 
   test('show more/less button will set limit on click', async () => {
     const showBtn = document.getElementById('RSM-text');
+
     expect(/limit=5/.test(getURL)).toBe.Truthy;
     fireEvent.click(showBtn);
     await screen.findByText('Show Less');
@@ -55,7 +58,11 @@ describe('Reviews', () => {
     const testItem = Array.from(reviewItems)[0].id;
     const reviewItemBtns = document.getElementsByClassName('RLI-helpful-thumb');
     const testBtn = Array.from(reviewItemBtns)[0]
+
+    expect(testBtn.innerHTML.includes('far')).toBe.Truthy;
     fireEvent.click(testBtn);
     expect(patchURL.includes(testItem)).toBe.Truthy;
+    fireEvent.click(testBtn);
+    expect(testBtn.innerHTML.includes('far')).not.toBe.Truthy;
   });
 });

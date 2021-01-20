@@ -25,10 +25,13 @@ describe('Filter Menu', () => {
       options={filterOptions}
       handler={handler}
     />);
+
     const dropdown = document.getElementById('mod-container');
     fireEvent.click(dropdown);
+
     const option = document.getElementsByClassName('fieldset-option')[4];
     fireEvent.click(option);
+
     expect(handler.mock.results[0].value).toBe(2)
   });
 
@@ -38,12 +41,16 @@ describe('Filter Menu', () => {
       options={filterOptions}
       handler={handler}
     />);
+
     const dropdown = document.getElementById('mod-container');
     fireEvent.click(dropdown);
+
     const option = document.getElementsByClassName('fieldset-option')[4];
     fireEvent.click(option);
+
     const clear = document.getElementById('reviews-filter-clear');
     fireEvent.click(clear);
+
     expect(handler.mock.results[2].value).toBe(0);
   });
 });
@@ -56,15 +63,19 @@ describe('Sort Menu', () => {
       options={sortOptions}
       handler={handler}
     />);
+
     const dropdown = document.getElementById('mod-container');
     fireEvent.click(dropdown);
+
     const option = document.getElementsByClassName('fieldset-option');
+
     fireEvent.click(option[1]);
     fireEvent.click(dropdown);
     fireEvent.click(option[0]);
     expect(handler.mock.results[0].value).toBe('helpful');
     expect(handler.mock.results[1].value).toBe('review_date');
+
     fireEvent.keyDown(dropdown);
-    fireEvent.keyDown(option[1]);
+    expect(fireEvent.keyDown(option[1])).toBe.Truthy;
   });
 });

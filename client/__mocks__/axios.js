@@ -1,4 +1,5 @@
 import { data } from '../../spec/data/sampleReviews';
+
 export let getURL;
 export let patchURL;
 
