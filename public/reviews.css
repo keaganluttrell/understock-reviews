@@ -176,7 +176,7 @@ html,
   display: flex;
   align-items: center;
   justify-content: center;
-
+  cursor: pointer;
 }
 
 .reviews-gallery-img img {

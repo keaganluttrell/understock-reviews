@@ -1,11 +1,13 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-const Gallery = () => (
+const Gallery = ({ gallery }) => (
   <>
     <div id="reviews-gallery">
-      {[1, 2, 3, 4, 5, 6].map((img, i) => (
-        <div className="reviews-gallery-img" key={img}>
-          <img src={`https://fec-aws-images.s3.us-east-2.amazonaws.com/images/img${i + 9}.jpg`} alt="img" />
+      {gallery.map((review) => (
+        <div className="reviews-gallery-img" key={review._id}>
+          <img src={review.images[0]} alt="img" />
         </div>
       ))}
     </div>
