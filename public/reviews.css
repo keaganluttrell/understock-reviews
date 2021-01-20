@@ -440,7 +440,6 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
   height: fit-content;
-  position: relative;
   height: 90px;
 }
 
@@ -450,11 +449,6 @@ flex-direction: column;
   transition-duration: .5s;
 }
 
-.RLI-images img:hover {
-  height: 270px;
-  position: sticky;
-  z-index: 10;
-}
 
 .RLI-bottom-line {
   display: flex;
@@ -570,7 +564,7 @@ flex-direction: column;
 }
 
 #reviews-modal-open {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -594,17 +588,17 @@ flex-direction: column;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.07);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 #reviews-modal-title {
   font-weight: bold;
-  margin: 15px 10px;
+  margin: 10px;
 }
 
 #reviews-modal-x {
   background-color: transparent;
-  margin: 15px 10px;
+  margin: 10px 10px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -613,4 +607,60 @@ flex-direction: column;
 
 #reviews-modal-x:hover {
   transform: scale(1.1);
+}
+
+#reviews-modal-body {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#reviews-modal-body .reviews-list-item {
+  border: none;
+  font-size: 14px;
+}
+
+#reviews-modal-image{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.265);
+  height: 350px;
+  overflow: hidden;
+  width: 350px;
+  margin: 10px 0px;
+}
+
+#reviews-modal-image img{
+  width: 350px;
+}
+
+#reviews-modal-item{
+  width: 375px;
+}
+
+#reviews-modal-item .RLI-bottom-line {
+  display: flex;
+  flex-direction: column;
+}
+
+#reviews-modal-item .RLI-by-line {
+  align-self: flex-start;
+}
+
+#reviews-modal-item .RLI-helpful {
+  margin-top: 10px;
+  color: transparent;
+}
+
+#reviews-modal-item .RLI-helpful-thumb {
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.654);
+}
+
+#reviews-modal-item .RLI-top-line{
+  margin-left: -5px;
 }

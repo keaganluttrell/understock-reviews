@@ -27,14 +27,15 @@ const Modal = ({ item, setModal, addHelpful }) => {
           </button>
         </div>
 
-        <div id="reviews-modal-image">
-          <img src={item?.images[0]} alt="alt" />
-        </div>
+        <div id="reviews-modal-body">
+          <div id="reviews-modal-image">
+            <img src={item?.images[0]} alt="alt" />
+          </div>
 
-        <div id="reviews-modal-item">
-          {RLI}
+          <div id="reviews-modal-item">
+            {RLI}
+          </div>
         </div>
-
       </div>
 
     </div>

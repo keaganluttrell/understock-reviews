@@ -33,6 +33,7 @@ const ReviewListItem = ({ item, addHelpful }) => {
       </div>
 
       <div className="RLI-bottom-line">
+
         <div className="RLI-by-line">
           {item.customer_name}
           {' '}
