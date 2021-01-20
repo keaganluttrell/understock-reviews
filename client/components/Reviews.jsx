@@ -7,6 +7,7 @@ import Graph from './Graph';
 import Gallery from './Gallery';
 import Star from './Star';
 import Title from './Title';
+import Modal from './Modal';
 
 const filterOptions = [
   { head: <div id="RFF-all">All</div>, body: 0 },
@@ -128,6 +129,8 @@ const Reviews = ({ productId, meta }) => {
         </div>
 
       </div>
+
+      <Modal />
     </>
   );
 };
