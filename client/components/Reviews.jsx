@@ -7,6 +7,7 @@ import Graph from './Graph';
 import Gallery from './Gallery';
 import Star from './Star';
 import Title from './Title';
+import Modal from './Modal';
 
 const filterOptions = [
   { head: <div id="RFF-all">All</div>, body: 0 },
@@ -28,6 +29,8 @@ const Reviews = ({ productId, meta }) => {
   const [filter, setFilter] = useState(0);
   const [sort, setSort] = useState('review_date');
   const [gallery, setGallery] = useState([]);
+  const [modal, setModal] = useState(null);
+  const [index, setIndex] = useState(0);
 
   const getReviews = () => {
     axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
@@ -46,7 +49,12 @@ const Reviews = ({ productId, meta }) => {
   const addHelpful = (id, checked) => {
     if (!checked) {
       axios.patch(`/${productId}/reviews/${id}`)
-        .then(() => getReviews(limit));
+        .then((item) => {
+          if (modal) {
+            setModal(item.data);
+          }
+          getReviews(limit);
+        });
     }
   };
 
@@ -68,13 +76,17 @@ const Reviews = ({ productId, meta }) => {
       />
 
       <div
-        id="reviews-content"
+        id={modal ? 'reviews-content-locked' : 'reviews-content'}
         style={{ display: display ? 'flex' : 'none' }}
       >
 
         <div id="reviews-header">
           <Graph meta={meta} />
-          <Gallery gallery={gallery} />
+          <Gallery
+            gallery={gallery}
+            setModal={setModal}
+            setIndex={setIndex}
+          />
         </div>
 
         <div id="reviews-filter-title">
@@ -101,7 +113,7 @@ const Reviews = ({ productId, meta }) => {
           {`1-${list.length} of ${meta.totalReviews} reviews`}
         </div>
 
-        <ReviewList list={list} addHelpful={addHelpful} />
+        <ReviewList list={list} addHelpful={addHelpful} setModal={setModal} setIndex={setIndex} />
 
         <div
           id="reviews-show-more"
@@ -128,6 +140,14 @@ const Reviews = ({ productId, meta }) => {
         </div>
 
       </div>
+
+      <Modal
+        item={modal}
+        setModal={setModal}
+        addHelpful={addHelpful}
+        index={index}
+        setIndex={setIndex}
+      />
     </>
   );
 };
