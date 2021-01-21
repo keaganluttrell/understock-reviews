@@ -4,7 +4,6 @@ import React from 'react';
 
 const Gallery = ({
   gallery,
-  setModal,
   setIndex,
   setPlace,
 }) => (
@@ -16,12 +15,10 @@ const Gallery = ({
           key={review._id}
           onClick={() => {
             setIndex(0);
-            setModal(review);
             setPlace(i);
           }}
           onKeyDown={() => {
             setIndex(0);
-            setModal(review);
             setPlace(i);
           }}
           role="button"
@@ -38,7 +35,6 @@ const Gallery = ({
         onClick={() => {
           setIndex(0);
           setPlace(0);
-          setModal(gallery[0]);
         }}
       >
         <svg

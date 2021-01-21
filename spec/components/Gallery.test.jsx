@@ -19,12 +19,10 @@ describe('Gallery', () => {
   });
 
   test('gallery images should set index to 0 and set modal to the review of image clicked', () => {
-    const mockModal = jest.fn((arg) => arg);
     const mockIndex = jest.fn((arg) => arg);
 
     render(<Gallery
       gallery={data.slice(0, 6)}
-      setModal={mockModal}
       setIndex={mockIndex}
       setPlace={(arg) => arg}
     />);
@@ -33,17 +31,14 @@ describe('Gallery', () => {
     fireEvent.click(imageDivs[0]);
     fireEvent.keyDown(imageDivs[0]);
     expect(mockIndex.mock.results[0].value).toBe(0);
-    expect(mockModal.mock.results[0].value._id).toBe("6000cf3d58202e16a48ec64e");
     expect(mockIndex.mock.results[1].value).toBe(0);
-    expect(mockModal.mock.results[1].value._id).toBe("6000cf3d58202e16a48ec64e");
   });
 
   test('gallery button should default to the first image of first review', () => {
-    const mockModal = jest.fn((arg) => arg);
     const mockIndex = jest.fn((arg) => arg);
+
     render(<Gallery
       gallery={data.slice(0, 6)}
-      setModal={mockModal}
       setIndex={mockIndex}
       setPlace={(arg) => arg}
     />);
@@ -51,7 +46,6 @@ describe('Gallery', () => {
     const galleryBtn = document.getElementById('reviews-gallery-button');
     fireEvent.click(galleryBtn);
     expect(mockIndex.mock.results[0].value).toBe(0);
-    expect(mockModal.mock.results[0].value._id).toBe("6000cf3d58202e16a48ec64e");
   });
 
 });

@@ -98,7 +98,6 @@ const Reviews = ({ productId, meta }) => {
           <Graph meta={meta} />
           <Gallery
             gallery={gallery}
-            setModal={setModal}
             setIndex={setIndex}
             setPlace={setPlace}
           />
