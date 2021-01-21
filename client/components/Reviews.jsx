@@ -49,7 +49,12 @@ const Reviews = ({ productId, meta }) => {
   const addHelpful = (id, checked) => {
     if (!checked) {
       axios.patch(`/${productId}/reviews/${id}`)
-        .then(() => getReviews(limit));
+        .then((item) => {
+          if (modal) {
+            setModal(item.data);
+          }
+          getReviews(limit);
+        });
     }
   };
 

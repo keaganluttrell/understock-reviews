@@ -580,7 +580,7 @@ flex-direction: column;
   background-color: white;
   min-width: 800px;
   width: 80%;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 
 #reviews-modal-header {

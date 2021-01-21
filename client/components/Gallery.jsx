@@ -25,6 +25,10 @@ const Gallery = ({ gallery, setModal, setIndex }) => (
       <button
         type="button"
         id="reviews-gallery-button"
+        onClick={() => {
+          setIndex(0);
+          setModal(gallery[0]);
+        }}
       >
         <svg
           className="reviews-gallery-svg-grid-icon"
