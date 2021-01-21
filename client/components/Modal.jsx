@@ -20,7 +20,10 @@ const Modal = ({
     )
     : '';
   return (
-    <div id={`reviews-modal-${item ? 'open' : 'closed'}`}>
+    <div
+      data-testid={item ? 'modal-open' : 'modal-closed'}
+      id={`reviews-modal-${item ? 'open' : 'closed'}`}
+    >
 
       <div id="reviews-modal-container">
 
