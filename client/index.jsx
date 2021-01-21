@@ -11,6 +11,8 @@ const meta = {
   threeStarReviews: 26,
   twoStarReviews: 31,
   oneStarReviews: 18,
+  reviewsWithImages: 32,
+  totalimages: 61,
 };
 
 ReactDOM.render(<Reviews productId={99} meta={meta} />,

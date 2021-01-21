@@ -30,6 +30,17 @@ app.get('/:product_id/reviews/images', (req, res) => {
     .then((images) => res.send(images));
 });
 
+app.get('/:product_id/reviews/images/:place', (req, res) => {
+  const product = req.params.product_id;
+  const { place } = req.params;
+  Review.find({ product_id: product, 'images.0': { $exists: true } })
+    .sort('-review_date')
+    .skip(+place)
+    .limit(1)
+    .exec()
+    .then((review) => res.send(review));
+});
+
 app.patch('/:product_id/reviews/:id', (req, res) => {
   const reviewId = req.params.id;
   Review.findOneAndUpdate(
