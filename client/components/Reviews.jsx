@@ -30,6 +30,7 @@ const Reviews = ({ productId, meta }) => {
   const [sort, setSort] = useState('review_date');
   const [gallery, setGallery] = useState([]);
   const [modal, setModal] = useState(null);
+  const [index, setIndex] = useState(0);
 
   const getReviews = () => {
     axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
@@ -79,6 +80,7 @@ const Reviews = ({ productId, meta }) => {
           <Gallery
             gallery={gallery}
             setModal={setModal}
+            setIndex={setIndex}
           />
         </div>
 
@@ -106,7 +108,7 @@ const Reviews = ({ productId, meta }) => {
           {`1-${list.length} of ${meta.totalReviews} reviews`}
         </div>
 
-        <ReviewList list={list} addHelpful={addHelpful} setModal={setModal} />
+        <ReviewList list={list} addHelpful={addHelpful} setModal={setModal} setIndex={setIndex} />
 
         <div
           id="reviews-show-more"
@@ -134,7 +136,13 @@ const Reviews = ({ productId, meta }) => {
 
       </div>
 
-      <Modal item={modal} setModal={setModal} addHelpful={addHelpful} />
+      <Modal
+        item={modal}
+        setModal={setModal}
+        addHelpful={addHelpful}
+        index={index}
+        setIndex={setIndex}
+      />
     </>
   );
 };

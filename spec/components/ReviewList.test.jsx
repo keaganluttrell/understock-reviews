@@ -6,7 +6,7 @@ import { data } from '../data/sampleReviews';
 
 describe('Review List', () => {
   test('should display no reviews message when list is empty', () => {
-    render(<ReviewList list={[]} addHelpful={() => { }} />);
+    render(<ReviewList list={[]} addHelpful={() => { }} setIndex={() => { }} setModal={() => { }} />);
     const text = document.getElementById('reviews-no-reviews').innerHTML;
 
     expect(text).not.toBe(undefined);

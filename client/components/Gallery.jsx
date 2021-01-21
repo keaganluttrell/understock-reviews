@@ -2,14 +2,17 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Gallery = ({ gallery, setModal }) => (
+const Gallery = ({ gallery, setModal, setIndex }) => (
   <>
     <div id="reviews-gallery">
       {gallery.map((review) => (
         <div
           className="reviews-gallery-img"
           key={review._id}
-          onClick={() => setModal(review)}
+          onClick={() => {
+            setIndex(0);
+            setModal(review);
+          }}
           onKeyDown={() => setModal(review)}
           role="button"
           tabIndex={0}

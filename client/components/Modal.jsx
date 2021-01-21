@@ -2,8 +2,23 @@
 import React from 'react';
 import ReviewListItem from './ReviewListItem';
 
-const Modal = ({ item, setModal, addHelpful }) => {
-  const RLI = item ? <ReviewListItem item={item} addHelpful={addHelpful} /> : '';
+const Modal = ({
+  item,
+  setModal,
+  addHelpful,
+  index,
+  setIndex,
+}) => {
+  const RLI = item
+    ? (
+      <ReviewListItem
+        item={item}
+        addHelpful={addHelpful}
+        setModal={setModal}
+        setIndex={setIndex}
+      />
+    )
+    : '';
   return (
     <div id={`reviews-modal-${item ? 'open' : 'closed'}`}>
 
@@ -29,7 +44,7 @@ const Modal = ({ item, setModal, addHelpful }) => {
 
         <div id="reviews-modal-body">
           <div id="reviews-modal-image">
-            <img src={item?.images[0]} alt="alt" />
+            <img src={item?.images[index]} alt="alt" />
           </div>
 
           <div id="reviews-modal-item">

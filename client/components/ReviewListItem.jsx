@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
+/* eslint-disable no-param-reassign */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
@@ -7,7 +9,12 @@ import moment from 'moment';
 // import propTypes from 'prop-types';
 import Star from './Star';
 
-const ReviewListItem = ({ item, addHelpful, setModal }) => {
+const ReviewListItem = ({
+  item,
+  addHelpful,
+  setModal,
+  setIndex,
+}) => {
   const [helped, setHelped] = useState(false);
 
   return (
@@ -31,12 +38,15 @@ const ReviewListItem = ({ item, addHelpful, setModal }) => {
       <div className="RLI-body">{item.review_body}</div>
 
       <div className="RLI-images">
-        {item.images.map((url) => (
+        {item.images.map((url, i) => (
           <img
             src={url}
             alt="product"
             key={url}
-            onClick={() => setModal(item)}
+            onClick={() => {
+              setIndex(i);
+              setModal(item);
+            }}
           />
         ))}
       </div>
