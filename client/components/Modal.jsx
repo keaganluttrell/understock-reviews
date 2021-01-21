@@ -54,6 +54,62 @@ const Modal = ({
             {RLI}
           </div>
         </div>
+
+        <div id={`modal-footer-${true ? 'display' : 'none'}`}>
+
+          <button
+            type="button"
+            id="modal-footer-prev"
+          >
+            <svg
+              className="MFB-left"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              stroke="#2F3337"
+              fill="#2F3337"
+            >
+              <title>Chevron Left</title>
+              <path
+                d="M17 2L7 12l10 10"
+                stroke="inherit"
+                fill="none"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            Previous Review
+          </button>
+
+          <button
+            type="button"
+            id="modal-footer-next"
+          >
+            Next Review
+            <svg
+              className="MFB-right"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              stroke="#2F3337"
+              fill="#2F3337"
+            >
+              <title>Chevron Right</title>
+              <path
+                d="M7 2l10 10L7 22"
+                stroke="inherit"
+                fill="none"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+        </div>
       </div>
 
     </div>
