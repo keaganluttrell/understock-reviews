@@ -13,7 +13,10 @@ const Gallery = ({ gallery, setModal, setIndex }) => (
             setIndex(0);
             setModal(review);
           }}
-          onKeyDown={() => setModal(review)}
+          onKeyDown={() => {
+            setIndex(0);
+            setModal(review);
+          }}
           role="button"
           tabIndex={0}
         >
