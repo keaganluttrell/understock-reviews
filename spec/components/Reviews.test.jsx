@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Reviews from '../../client/components/Reviews';
-import { getURL, patchURL } from '../../client/__mocks__/axios';
+import axios, { getURL, patchURL } from '../../client/__mocks__/axios';
 
 const meta = {
   product_id: 99,
@@ -48,9 +48,14 @@ describe('Reviews', () => {
 
     expect(/limit=5/.test(getURL)).toBe.Truthy;
     fireEvent.click(showBtn);
+
     await screen.findByText('Show Less');
     expect(showBtn).toContainHTML('Show Less');
     expect(/limit=10/.test(getURL)).toBe.Truthy;
+
+    fireEvent.click(showBtn);
+    await screen.findByText('Show More');
+    expect(/limit=5/.test(getURL)).toBe.Truthy;
   });
 
   test('Review List item will send a patch request to server on helpful click', () => {
@@ -64,5 +69,22 @@ describe('Reviews', () => {
     expect(patchURL.includes(testItem)).toBe.Truthy;
     fireEvent.click(testBtn);
     expect(testBtn.innerHTML.includes('far')).not.toBe.Truthy;
+  });
+
+  test('will send a patch request in modal on helpful click', async () => {
+    const imageDiv = Array.from(document.getElementsByClassName('RLI-images'))[0];
+    const image = imageDiv.querySelector('img');
+
+    fireEvent.click(image);
+
+    const modal = document.getElementById('reviews-modal-open');
+    expect(modal).toBeVisible();
+
+    const thumb = Array.from(document.getElementsByClassName('RLI-helpful'))[0];
+    const thumbBtn = thumb.querySelector('.RLI-helpful-thumb');
+
+    expect(thumbBtn.innerHTML.includes('far')).toBe.Truthy;
+    fireEvent.click(thumbBtn);
+    expect(thumbBtn.innerHTML.includes('fas')).toBe.Truthy;
   });
 });
