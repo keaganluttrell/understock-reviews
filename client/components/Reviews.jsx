@@ -31,6 +31,7 @@ const Reviews = ({ productId, meta }) => {
   const [gallery, setGallery] = useState([]);
   const [modal, setModal] = useState(null);
   const [index, setIndex] = useState(0);
+  const [place, setPlace] = useState(null);
 
   const getReviews = () => {
     axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
@@ -44,6 +45,15 @@ const Reviews = ({ productId, meta }) => {
       .then((images) => {
         setGallery(images.data);
       });
+  };
+
+  const getPlace = () => {
+    if (place !== null) {
+      axios.get(`/${productId}/reviews/images/${place}`)
+        .then((review) => {
+          setModal(review.data[0]);
+        });
+    }
   };
 
   const addHelpful = (id, checked) => {
@@ -66,6 +76,10 @@ const Reviews = ({ productId, meta }) => {
     getImages();
   }, [productId]);
 
+  useEffect(() => {
+    getPlace();
+  }, [place]);
+
   return (
     <>
       <Title
@@ -86,6 +100,7 @@ const Reviews = ({ productId, meta }) => {
             gallery={gallery}
             setModal={setModal}
             setIndex={setIndex}
+            setPlace={setPlace}
           />
         </div>
 
@@ -147,6 +162,9 @@ const Reviews = ({ productId, meta }) => {
         addHelpful={addHelpful}
         index={index}
         setIndex={setIndex}
+        place={place}
+        setPlace={setPlace}
+        reviewsWithImages={meta.reviewsWithImages}
       />
     </>
   );

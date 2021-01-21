@@ -8,6 +8,9 @@ const Modal = ({
   addHelpful,
   index,
   setIndex,
+  place,
+  setPlace,
+  reviewsWithImages,
 }) => {
   const RLI = item
     ? (
@@ -32,7 +35,10 @@ const Modal = ({
           <button
             type="button"
             id="reviews-modal-x"
-            onClick={() => setModal(null)}
+            onClick={() => {
+              setModal(null);
+              setPlace(null);
+            }}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" stroke="#2F3337" fill="#2F3337">
               <title>Close</title>
@@ -55,11 +61,17 @@ const Modal = ({
           </div>
         </div>
 
-        <div id={`modal-footer-${true ? 'display' : 'none'}`}>
+        <div id={`modal-footer-${place !== null ? 'display' : 'none'}`}>
 
           <button
             type="button"
-            id="modal-footer-prev"
+            id="modal-footer-btn-prev"
+            style={{ display: place === 0 ? 'none' : 'flex' }}
+            onClick={() => {
+              if (place > 0) {
+                setPlace(place - 1);
+              }
+            }}
           >
             <svg
               className="MFB-left"
@@ -85,7 +97,11 @@ const Modal = ({
 
           <button
             type="button"
-            id="modal-footer-next"
+            id="modal-footer-btn-next"
+            style={{ display: place === reviewsWithImages - 1 ? 'none' : 'flex' }}
+            onClick={() => {
+              setPlace(place + 1);
+            }}
           >
             Next Review
             <svg

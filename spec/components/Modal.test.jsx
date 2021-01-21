@@ -25,11 +25,12 @@ describe('Modal', () => {
       item = arg;
       return arg;
     });
+    const mockPlace = jest.fn((arg) => arg);
 
     let container = document.createElement('div');
     document.body.appendChild(container);
 
-    render(<Modal item={item} setModal={mockModal} />, container);
+    render(<Modal item={item} setModal={mockModal} setPlace={mockPlace} />, container);
 
     const closeBtn = document.getElementById('reviews-modal-x');
     fireEvent.click(closeBtn);
