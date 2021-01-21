@@ -8,6 +8,9 @@ const Modal = ({
   addHelpful,
   index,
   setIndex,
+  place,
+  setPlace,
+  reviewsWithImages,
 }) => {
   const RLI = item
     ? (
@@ -20,7 +23,10 @@ const Modal = ({
     )
     : '';
   return (
-    <div id={`reviews-modal-${item ? 'open' : 'closed'}`}>
+    <div
+      data-testid={item ? 'modal-open' : 'modal-closed'}
+      id={`reviews-modal-${item ? 'open' : 'closed'}`}
+    >
 
       <div id="reviews-modal-container">
 
@@ -29,7 +35,10 @@ const Modal = ({
           <button
             type="button"
             id="reviews-modal-x"
-            onClick={() => setModal(null)}
+            onClick={() => {
+              setModal(null);
+              setPlace(null);
+            }}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" stroke="#2F3337" fill="#2F3337">
               <title>Close</title>
@@ -50,6 +59,72 @@ const Modal = ({
           <div id="reviews-modal-item">
             {RLI}
           </div>
+        </div>
+
+        <div id={`modal-footer-${place !== null ? 'display' : 'none'}`}>
+
+          <button
+            type="button"
+            id="modal-footer-btn-prev"
+            style={{ display: place === 0 ? 'none' : 'flex' }}
+            onClick={() => {
+              if (place > 0) {
+                setPlace(place - 1);
+              }
+            }}
+          >
+            <svg
+              className="MFB-left"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              stroke="#2F3337"
+              fill="#2F3337"
+            >
+              <title>Chevron Left</title>
+              <path
+                d="M17 2L7 12l10 10"
+                stroke="inherit"
+                fill="none"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            Previous Review
+          </button>
+
+          <button
+            type="button"
+            id="modal-footer-btn-next"
+            style={{ display: place === reviewsWithImages - 1 ? 'none' : 'flex' }}
+            onClick={() => {
+              setPlace(place + 1);
+            }}
+          >
+            Next Review
+            <svg
+              className="MFB-right"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              stroke="#2F3337"
+              fill="#2F3337"
+            >
+              <title>Chevron Right</title>
+              <path
+                d="M7 2l10 10L7 22"
+                stroke="inherit"
+                fill="none"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
         </div>
       </div>
 

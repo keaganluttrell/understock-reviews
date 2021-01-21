@@ -657,10 +657,54 @@ flex-direction: column;
 }
 
 #reviews-modal-item .RLI-helpful-thumb {
-  margin-top: 10px;
+  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 0px;
   color: rgba(0, 0, 0, 0.654);
 }
 
 #reviews-modal-item .RLI-top-line{
   margin-left: -5px;
 }
+
+#modal-footer-none{
+  display: none;
+}
+
+#modal-footer-display {
+  background-color: rgba(0, 0, 0, 0.03);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* justify-content: space-between; */
+}
+
+#modal-footer-display button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  margin: 15px 0px;
+  font-size: 14px;
+  color: #0272a2;
+  cursor: pointer;
+  transition-duration: .5s;
+}
+
+#modal-footer-display #modal-footer-btn-prev {
+  grid-column: 1;
+  justify-self: flex-start;
+}
+
+#modal-footer-display #modal-footer-btn-next {
+  grid-column: 2;
+  justify-self: flex-end;
+}
+
+#modal-footer-display button svg {
+  padding: 5px;
+}
+
+/* #modal-footer-display button:hover {
+  color: #01466384;
+} */

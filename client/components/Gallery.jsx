@@ -2,20 +2,27 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Gallery = ({ gallery, setModal, setIndex }) => (
+const Gallery = ({
+  gallery,
+  setModal,
+  setIndex,
+  setPlace,
+}) => (
   <>
     <div id="reviews-gallery">
-      {gallery.map((review) => (
+      {gallery.map((review, i) => (
         <div
           className="reviews-gallery-img"
           key={review._id}
           onClick={() => {
             setIndex(0);
             setModal(review);
+            setPlace(i);
           }}
           onKeyDown={() => {
             setIndex(0);
             setModal(review);
+            setPlace(i);
           }}
           role="button"
           tabIndex={0}
@@ -30,6 +37,7 @@ const Gallery = ({ gallery, setModal, setIndex }) => (
         id="reviews-gallery-button"
         onClick={() => {
           setIndex(0);
+          setPlace(0);
           setModal(gallery[0]);
         }}
       >

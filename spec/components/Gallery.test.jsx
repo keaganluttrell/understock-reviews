@@ -26,6 +26,7 @@ describe('Gallery', () => {
       gallery={data.slice(0, 6)}
       setModal={mockModal}
       setIndex={mockIndex}
+      setPlace={(arg) => arg}
     />);
 
     const imageDivs = Array.from(document.getElementsByClassName('reviews-gallery-img'));
@@ -44,6 +45,7 @@ describe('Gallery', () => {
       gallery={data.slice(0, 6)}
       setModal={mockModal}
       setIndex={mockIndex}
+      setPlace={(arg) => arg}
     />);
 
     const galleryBtn = document.getElementById('reviews-gallery-button');
