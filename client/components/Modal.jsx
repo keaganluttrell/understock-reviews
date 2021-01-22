@@ -74,7 +74,9 @@ const Modal = ({
             title="previous"
             style={{ display: place === 0 ? 'none' : 'flex' }}
             onClick={() => {
-              setPlace(place - 1);
+              if (place > 0) {
+                setPlace(place - 1);
+              }
             }}
           >
             <svg

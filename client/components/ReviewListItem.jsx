@@ -62,6 +62,9 @@ const ReviewListItem = ({
         Was this review helpful?
         <div
           className="RLI-helpful-thumb"
+          role="button"
+          tabIndex={0}
+          title="thumbBtn"
           onKeyDown={() => {
             addHelpful(item._id);
             const newThumbs = JSON.parse(JSON.stringify(thumbIds));
@@ -76,8 +79,7 @@ const ReviewListItem = ({
               setThumbIds(newThumbs);
             }
           }}
-          role="button"
-          tabIndex={0}
+
         >
           <i className={`${thumbIds.includes(item._id) ? 'fas' : 'far'} fa-thumbs-up`} />
           {item.helpful}

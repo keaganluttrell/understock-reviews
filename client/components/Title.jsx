@@ -12,6 +12,7 @@ const Title = ({
   <div
     id="reviews-title"
     role="button"
+    title="titleBar"
     tabIndex={0}
     style={{ borderBottom: display ? '0px' : '1px solid  rgba(0, 0, 0, 0.405)' }}
     onKeyDown={() => setDisplay(!display)}

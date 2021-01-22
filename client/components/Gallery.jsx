@@ -8,7 +8,7 @@ const Gallery = ({
   setPlace,
 }) => (
   <>
-    <div id="reviews-gallery">
+    <div id="reviews-gallery" data-testid="reviews-gallery">
       {gallery.map((review, i) => (
         <div
           className="reviews-gallery-img"
@@ -32,6 +32,7 @@ const Gallery = ({
       <button
         type="button"
         id="reviews-gallery-button"
+        title="galleryBtn"
         onClick={() => {
           setIndex(0);
           setPlace(0);

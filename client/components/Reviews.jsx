@@ -142,6 +142,7 @@ const Reviews = ({ productId, meta }) => {
           <button
             type="button"
             id="RSM-text"
+            title="showBtn"
             onClick={() => setLimit(limit === 5 ? 10 : 5)}
           >
             {limit === 5 ? 'Show More' : 'Show Less'}
