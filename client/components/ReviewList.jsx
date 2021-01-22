@@ -9,6 +9,8 @@ const ReviewList = ({
   addHelpful,
   setModal,
   setIndex,
+  thumbIds,
+  setThumbIds,
 }) => (
   <div id="reviews-list">
     {list.map((item) => (
@@ -18,6 +20,8 @@ const ReviewList = ({
         addHelpful={addHelpful}
         setModal={setModal}
         setIndex={setIndex}
+        thumbIds={thumbIds}
+        setThumbIds={setThumbIds}
       />
     ))}
     <div

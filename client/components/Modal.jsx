@@ -11,6 +11,8 @@ const Modal = ({
   place,
   setPlace,
   reviewsWithImages,
+  thumbIds,
+  setThumbIds,
 }) => {
   const RLI = item
     ? (
@@ -19,6 +21,8 @@ const Modal = ({
         addHelpful={addHelpful}
         setModal={setModal}
         setIndex={setIndex}
+        thumbIds={thumbIds}
+        setThumbIds={setThumbIds}
       />
     )
     : '';

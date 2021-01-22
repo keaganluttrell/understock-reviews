@@ -7,13 +7,25 @@ import { data } from '../data/sampleReviews';
 describe('Modal', () => {
 
   test('expect modal to be closed when it does not have a review item', () => {
-    render(<Modal item={null} />);
+    render(
+      <Modal
+        item={null}
+        thumbIds={[]}
+        setThumbIds={() => { }}
+      />)
+      ;
     const modal = document.getElementById('reviews-modal-open');
     expect(modal).toBeNull;
   });
 
   test('expect modal to be open if is passed a review item', () => {
-    render(<Modal item={data[0]} />);
+    render(
+      <Modal
+        item={data[0]}
+        thumbIds={[]}
+        setThumbIds={() => { }}
+      />
+    );
     const modal = document.getElementById('reviews-modal-open');
 
     expect(modal).toBeVisible();
@@ -30,7 +42,16 @@ describe('Modal', () => {
     let container = document.createElement('div');
     document.body.appendChild(container);
 
-    render(<Modal item={item} setModal={mockModal} setPlace={mockPlace} />, container);
+    render(
+      <Modal
+        item={item}
+        setModal={mockModal}
+        setPlace={mockPlace}
+        thumbIds={[]}
+        setThumbIds={() => { }}
+      />
+      , container
+    );
 
     const closeBtn = document.getElementById('reviews-modal-x');
     fireEvent.click(closeBtn);

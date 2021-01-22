@@ -6,14 +6,26 @@ import { data } from '../data/sampleReviews';
 
 describe('Review List', () => {
   test('should display no reviews message when list is empty', () => {
-    render(<ReviewList list={[]} addHelpful={() => { }} setIndex={() => { }} setModal={() => { }} />);
+    render(
+      <ReviewList list={[]}
+        setIndex={() => { }}
+        setModal={() => { }}
+        thumbIds={[]}
+        setThumbIds={() => { }}
+      />);
     const text = document.getElementById('reviews-no-reviews').innerHTML;
 
     expect(text).not.toBe(undefined);
   });
 
   test('should display all reviews given in list', () => {
-    render(<ReviewList list={data} addHelpful={() => { }} />);
+    render(
+      <ReviewList
+        list={data}
+        thumbIds={[]}
+        setThumbIds={() => { }}
+      />
+    );
     const reviews = document.getElementsByClassName('reviews-list-item');
 
     expect(reviews.length).toBe(data.length);
