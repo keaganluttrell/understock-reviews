@@ -58,7 +58,7 @@ describe('Reviews', () => {
     expect(/limit=5/.test(getURL)).toBe.Truthy;
   });
 
-  test('Review List item will send a patch request to server on helpful click', () => {
+  test('Review List item will send a patch request to server on helpful click', async () => {
     const reviewItems = document.getElementsByClassName('reviews-list-item');
     const testItem = Array.from(reviewItems)[0].id;
     const reviewItemBtns = document.getElementsByClassName('RLI-helpful-thumb');
@@ -66,6 +66,7 @@ describe('Reviews', () => {
 
     expect(testBtn.innerHTML.includes('far')).toBe.Truthy;
     fireEvent.click(testBtn);
+    await screen.findByText('Reviews');
     expect(patchURL.includes(testItem)).toBe.Truthy;
     fireEvent.click(testBtn);
     expect(testBtn.innerHTML.includes('far')).not.toBe.Truthy;
@@ -85,6 +86,7 @@ describe('Reviews', () => {
 
     expect(thumbBtn.innerHTML.includes('far')).toBe.Truthy;
     fireEvent.click(thumbBtn);
+    await screen.findByText('Reviews');
     expect(thumbBtn.innerHTML.includes('fas')).toBe.Truthy;
   });
 });

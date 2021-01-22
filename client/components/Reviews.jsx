@@ -32,6 +32,7 @@ const Reviews = ({ productId, meta }) => {
   const [modal, setModal] = useState(null);
   const [index, setIndex] = useState(0);
   const [place, setPlace] = useState(null);
+  const [thumbIds, setThumbIds] = useState([]);
 
   const getReviews = () => {
     axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
@@ -56,16 +57,14 @@ const Reviews = ({ productId, meta }) => {
     }
   };
 
-  const addHelpful = (id, checked) => {
-    if (!checked) {
-      axios.patch(`/${productId}/reviews/${id}`)
-        .then((item) => {
-          if (modal) {
-            setModal(item.data);
-          }
-          getReviews(limit);
-        });
-    }
+  const addHelpful = (id) => {
+    axios.patch(`/${productId}/reviews/${id}`)
+      .then((item) => {
+        if (modal) {
+          setModal(item.data);
+        }
+        getReviews(limit);
+      });
   };
 
   useEffect(() => {
@@ -95,10 +94,9 @@ const Reviews = ({ productId, meta }) => {
       >
 
         <div id="reviews-header">
-          <Graph meta={meta} />
+          <Graph meta={meta} filter={filter} />
           <Gallery
             gallery={gallery}
-            setModal={setModal}
             setIndex={setIndex}
             setPlace={setPlace}
           />
@@ -128,7 +126,14 @@ const Reviews = ({ productId, meta }) => {
           {`1-${list.length} of ${meta.totalReviews} reviews`}
         </div>
 
-        <ReviewList list={list} addHelpful={addHelpful} setModal={setModal} setIndex={setIndex} />
+        <ReviewList
+          list={list}
+          addHelpful={addHelpful}
+          setModal={setModal}
+          setIndex={setIndex}
+          thumbIds={thumbIds}
+          setThumbIds={setThumbIds}
+        />
 
         <div
           id="reviews-show-more"
@@ -165,6 +170,8 @@ const Reviews = ({ productId, meta }) => {
         place={place}
         setPlace={setPlace}
         reviewsWithImages={meta.reviewsWithImages}
+        thumbIds={thumbIds}
+        setThumbIds={setThumbIds}
       />
     </>
   );

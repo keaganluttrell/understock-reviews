@@ -4,7 +4,7 @@ import React from 'react';
 import Bar from './Bar';
 import Star from './Star';
 
-const Graph = ({ meta }) => (
+const Graph = ({ meta, filter }) => (
   <div id="reviews-graph">
 
     <div id="reviews-graph-header">
@@ -20,26 +20,31 @@ const Graph = ({ meta }) => (
         rating={5}
         avg={meta.fiveStarReviews / meta.totalReviews}
         totalReviews={meta.fiveStarReviews}
+        filter={filter}
       />
       <Bar
         rating={4}
         avg={meta.fourStarReviews / meta.totalReviews}
         totalReviews={meta.fourStarReviews}
+        filter={filter}
       />
       <Bar
         rating={3}
         avg={meta.threeStarReviews / meta.totalReviews}
         totalReviews={meta.threeStarReviews}
+        filter={filter}
       />
       <Bar
         rating={2}
         avg={meta.twoStarReviews / meta.totalReviews}
         totalReviews={meta.twoStarReviews}
+        filter={filter}
       />
       <Bar
         rating={1}
         avg={meta.oneStarReviews / meta.totalReviews}
         totalReviews={meta.oneStarReviews}
+        filter={filter}
       />
     </div>
   </div>
