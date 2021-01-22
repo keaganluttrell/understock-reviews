@@ -39,6 +39,7 @@ const Modal = ({
           <button
             type="button"
             id="reviews-modal-x"
+            title="close"
             onClick={() => {
               setModal(null);
               setPlace(null);
@@ -70,11 +71,10 @@ const Modal = ({
           <button
             type="button"
             id="modal-footer-btn-prev"
+            title="previous"
             style={{ display: place === 0 ? 'none' : 'flex' }}
             onClick={() => {
-              if (place > 0) {
-                setPlace(place - 1);
-              }
+              setPlace(place - 1);
             }}
           >
             <svg
@@ -102,6 +102,7 @@ const Modal = ({
           <button
             type="button"
             id="modal-footer-btn-next"
+            title="next"
             style={{ display: place === reviewsWithImages - 1 ? 'none' : 'flex' }}
             onClick={() => {
               setPlace(place + 1);
