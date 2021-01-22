@@ -6,35 +6,48 @@ import { data } from '../data/sampleReviews';
 
 describe('Review List Items', () => {
   test('handles \'Helpful\' functionality', () => {
-    const container = document.createElement('div');
     const mockHelpful = jest.fn();
-    const mockThumbs = jest.fn();
+    const mockThumbs = jest.fn((arg) => arg);
     render(
       <ReviewListItem
         item={data[0]}
         thumbIds={[]}
         addHelpful={mockHelpful}
         setThumbIds={mockThumbs}
-      />,
-      container
+      />
     );
 
     fireEvent.click(screen.getByRole('button'));
     fireEvent.keyDown(screen.getByRole('button'));
+    expect(mockThumbs.mock.results[0].value[0]).toBe(data[0]._id);
     expect(mockHelpful).toHaveBeenCalledTimes(2);
-    expect(mockThumbs).toHaveBeenCalledTimes(2);
   });
 
-  test('Displays Verifed Purchase for verified purcahses', () => {
-    const container = document.createElement('div');
+  test('will not call addHelpful or setThumbs if id is present in thumbIds', () => {
+    const mockHelpful = jest.fn();
+    const mockThumbs = jest.fn((arg) => arg);
+    render(
+      <ReviewListItem
+        item={data[0]}
+        thumbIds={[data[0]._id]}
+        addHelpful={mockHelpful}
+        setThumbIds={mockThumbs}
+      />
+    );
 
+    fireEvent.click(screen.getByRole('button'));
+    fireEvent.keyDown(screen.getByRole('button'));
+    expect(mockHelpful).toHaveBeenCalledTimes(0);
+  });
+
+
+  test('Displays Verifed Purchase for verified purcahses', () => {
     render(
       <ReviewListItem
         item={data[1]}
         thumbIds={[]}
         setThumbIds={() => { }}
-      />,
-      container
+      />
     );
 
     const verify = document.getElementsByClassName('RLI-verified');
@@ -55,9 +68,9 @@ describe('Review List Items', () => {
       />
     );
 
-    const images = Array.from(document.getElementsByTagName('img'));
+    const images = screen.getAllByTitle('img');
     fireEvent.click(images[2]);
-    expect(mockModal.mock.results[0].value._id).toBe('6000cf3d58202e16a48ec65a');
+    expect(mockModal.mock.results[0].value._id).toBe(data[2]._id);
     expect(mockIndex.mock.results[0].value).toBe(2);
   });
 });

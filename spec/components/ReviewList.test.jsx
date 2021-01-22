@@ -13,9 +13,8 @@ describe('Review List', () => {
         thumbIds={[]}
         setThumbIds={() => { }}
       />);
-    const text = document.getElementById('reviews-no-reviews').innerHTML;
-
-    expect(text).not.toBe(undefined);
+    const text = document.getElementById('reviews-no-reviews');
+    expect(text.style.display).toBe('block');
   });
 
   test('should display all reviews given in list', () => {
@@ -27,7 +26,9 @@ describe('Review List', () => {
       />
     );
     const reviews = document.getElementsByClassName('reviews-list-item');
-
     expect(reviews.length).toBe(data.length);
+
+    const text = document.getElementById('reviews-no-reviews');
+    expect(text.style.display).toBe('none');
   });
 });

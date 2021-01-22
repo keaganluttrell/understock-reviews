@@ -41,6 +41,7 @@ const ReviewListItem = ({
         <img
           src={url}
           alt="product"
+          title="img"
           key={url}
           onClick={() => {
             setIndex(i);
@@ -66,10 +67,12 @@ const ReviewListItem = ({
           tabIndex={0}
           title="thumbBtn"
           onKeyDown={() => {
-            addHelpful(item._id);
-            const newThumbs = JSON.parse(JSON.stringify(thumbIds));
-            newThumbs.push(item._id);
-            setThumbIds(newThumbs);
+            if (!thumbIds.includes(item._id)) {
+              addHelpful(item._id);
+              const newThumbs = JSON.parse(JSON.stringify(thumbIds));
+              newThumbs.push(item._id);
+              setThumbIds(newThumbs);
+            }
           }}
           onClick={() => {
             if (!thumbIds.includes(item._id)) {
@@ -79,7 +82,6 @@ const ReviewListItem = ({
               setThumbIds(newThumbs);
             }
           }}
-
         >
           <i className={`${thumbIds.includes(item._id) ? 'fas' : 'far'} fa-thumbs-up`} />
           {item.helpful}
