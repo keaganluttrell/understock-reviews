@@ -94,7 +94,7 @@ const Reviews = ({ productId, meta }) => {
       >
 
         <div id="reviews-header">
-          <Graph meta={meta} />
+          <Graph meta={meta} filter={filter} />
           <Gallery
             gallery={gallery}
             setIndex={setIndex}
