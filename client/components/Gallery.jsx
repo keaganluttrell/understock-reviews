@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable react/prop-types */
+
 import React from 'react';
+import propTypes from 'prop-types';
 
 const Gallery = ({
   gallery,
@@ -59,5 +60,11 @@ const Gallery = ({
     </div>
   </>
 );
+
+Gallery.propTypes = {
+  gallery: propTypes.arrayOf(propTypes.any).isRequired,
+  setIndex: propTypes.func.isRequired,
+  setPlace: propTypes.func.isRequired,
+};
 
 export default Gallery;

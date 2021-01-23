@@ -14,11 +14,13 @@ describe('Review List Items', () => {
         thumbIds={[]}
         addHelpful={mockHelpful}
         setThumbIds={mockThumbs}
+        setIndex={() => { }}
+        setModal={() => { }}
       />
     );
 
-    fireEvent.click(screen.getByRole('button'));
-    fireEvent.keyDown(screen.getByRole('button'));
+    fireEvent.click(screen.getAllByTitle('thumbBtn')[0]);
+    fireEvent.keyDown(screen.getAllByTitle('thumbBtn')[0]);
     expect(mockThumbs.mock.results[0].value[0]).toBe(data[0]._id);
     expect(mockHelpful).toHaveBeenCalledTimes(2);
   });
@@ -32,11 +34,13 @@ describe('Review List Items', () => {
         thumbIds={[data[0]._id]}
         addHelpful={mockHelpful}
         setThumbIds={mockThumbs}
+        setIndex={() => { }}
+        setModal={() => { }}
       />
     );
 
-    fireEvent.click(screen.getByRole('button'));
-    fireEvent.keyDown(screen.getByRole('button'));
+    fireEvent.click(screen.getAllByTitle('thumbBtn')[0]);
+    fireEvent.keyDown(screen.getAllByTitle('thumbBtn')[0]);
     expect(mockHelpful).toHaveBeenCalledTimes(0);
   });
 
@@ -47,6 +51,9 @@ describe('Review List Items', () => {
         item={data[1]}
         thumbIds={[]}
         setThumbIds={() => { }}
+        setIndex={() => { }}
+        addHelpful={() => { }}
+        setModal={() => { }}
       />
     );
 
@@ -65,11 +72,15 @@ describe('Review List Items', () => {
         setThumbIds={() => { }}
         setModal={mockModal}
         setIndex={mockIndex}
+        addHelpful={() => { }}
       />
     );
 
-    const images = screen.getAllByTitle('img');
+    const images = screen.getAllByTestId('RLI-img');
     fireEvent.click(images[2]);
+    fireEvent.keyDown(images[2]);
+    expect(mockModal.mock.results[0].value._id).toBe(data[2]._id);
+    expect(mockIndex.mock.results[0].value).toBe(2);
     expect(mockModal.mock.results[0].value._id).toBe(data[2]._id);
     expect(mockIndex.mock.results[0].value).toBe(2);
   });

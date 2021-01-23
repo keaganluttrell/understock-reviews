@@ -7,7 +7,13 @@ import { data } from '../data/sampleReviews';
 describe('Gallery', () => {
 
   test('should render if no reviews have images', () => {
-    render(<Gallery gallery={[]} />)
+    render(
+      <Gallery
+        gallery={[]}
+        setIndex={() => { }}
+        setPlace={() => { }}
+      />
+    )
 
     const gallery = screen.getByTestId('reviews-gallery');
     const images = gallery.getElementsByTagName('img');
@@ -15,7 +21,12 @@ describe('Gallery', () => {
   });
 
   test('should display all images given', () => {
-    render(<Gallery gallery={data.slice(0, 6)} />)
+    render(
+      <Gallery gallery={data.slice(0, 6)}
+        setIndex={() => { }}
+        setPlace={() => { }}
+      />
+    )
 
     const gallery = screen.getByTestId('reviews-gallery');
     const images = gallery.getElementsByTagName('img');

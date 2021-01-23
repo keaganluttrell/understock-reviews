@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { within } from '@testing-library/dom';
 import Reviews from '../../client/components/Reviews';
-import axios, { getURL, patchURL } from '../../client/__mocks__/axios';
+import axios from '../../client/__mocks__/axios';
 
 const productId = 99;
 const meta = {

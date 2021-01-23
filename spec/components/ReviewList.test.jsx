@@ -12,6 +12,7 @@ describe('Review List', () => {
         setModal={() => { }}
         thumbIds={[]}
         setThumbIds={() => { }}
+        addHelpful={() => { }}
       />);
     const text = document.getElementById('reviews-no-reviews');
     expect(text.style.display).toBe('block');
@@ -23,6 +24,9 @@ describe('Review List', () => {
         list={data}
         thumbIds={[]}
         setThumbIds={() => { }}
+        addHelpful={() => { }}
+        setIndex={() => { }}
+        setModal={() => { }}
       />
     );
     const reviews = document.getElementsByClassName('reviews-list-item');

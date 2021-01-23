@@ -12,6 +12,9 @@ describe('Modal', () => {
         item={null}
         thumbIds={[]}
         setThumbIds={() => { }}
+        setIndex={() => { }}
+        setModal={() => { }}
+        addHelpful={() => { }}
       />)
       ;
     const modalClosed = document.getElementById('reviews-modal-closed');
@@ -24,6 +27,9 @@ describe('Modal', () => {
         item={data[0]}
         thumbIds={[]}
         setThumbIds={() => { }}
+        addHelpful={() => { }}
+        setIndex={() => { }}
+        setModal={() => { }}
       />
     );
     const modalOpen = document.getElementById('reviews-modal-open');
@@ -46,6 +52,7 @@ describe('Modal', () => {
         thumbIds={[]}
         setThumbIds={() => { }}
         addHelpful={() => { }}
+        setIndex={() => { }}
       />
     );
     const closeBtn = screen.getByTitle('close');
@@ -72,6 +79,7 @@ describe('Modal', () => {
         addHelpful={() => { }}
         reviewsWithImages={10}
         place={null}
+        setIndex={() => { }}
       />
     );
     const footerDisplay = document.getElementById('modal-footer-display');
@@ -94,6 +102,7 @@ describe('Modal', () => {
         setThumbIds={() => { }}
         addHelpful={() => { }}
         reviewsWithImages={10}
+        setIndex={() => { }}
         place={0}
       />
     );
@@ -118,6 +127,7 @@ describe('Modal', () => {
         addHelpful={() => { }}
         reviewsWithImages={10}
         place={9}
+        setIndex={() => { }}
       />
     );
     const nextBtn = screen.getByTitle('next');
@@ -141,6 +151,7 @@ describe('Modal', () => {
         addHelpful={() => { }}
         reviewsWithImages={10}
         place={1}
+        setIndex={() => { }}
       />
     );
     const prevBtn = screen.getByTitle('previous');
@@ -165,6 +176,7 @@ describe('Modal', () => {
         addHelpful={() => { }}
         reviewsWithImages={10}
         place={1}
+        setIndex={() => { }}
       />
     );
     const nextBtn = screen.getByTitle('next');

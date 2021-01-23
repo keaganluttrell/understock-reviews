@@ -13,6 +13,7 @@ const Menu = ({ name, options, handler }) => {
         onClick={() => setActive(!active)}
         role="button"
         tabIndex={0}
+        title={`menu-${name}`}
       >
         <div>
           <fieldset>
@@ -33,12 +34,16 @@ const Menu = ({ name, options, handler }) => {
             return (
               <div
                 className="fieldset-option"
-                onKeyDown={() => setCurrent(option)}
+                onKeyDown={() => {
+                  handler(option.body);
+                  setCurrent(option);
+                }}
                 onClick={() => {
                   handler(option.body);
                   setCurrent(option);
                 }}
                 role="button"
+                title={`menu-option-${i}`}
                 tabIndex={0}
                 key={key}
               >
@@ -57,6 +62,7 @@ const Menu = ({ name, options, handler }) => {
         <button
           type="button"
           id="reviews-filter-clear"
+          title="menu-clear"
           onClick={() => {
             handler(0);
             setCurrent(options[0]);

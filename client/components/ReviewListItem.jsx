@@ -1,12 +1,8 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
-/* eslint-disable no-param-reassign */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import moment from 'moment';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import Star from './Star';
 
 const ReviewListItem = ({
@@ -38,16 +34,26 @@ const ReviewListItem = ({
 
     <div className="RLI-images">
       {item.images.map((url, i) => (
-        <img
-          src={url}
-          alt="product"
-          title="img"
-          key={url}
+        <div
+          data-testid="RLI-img"
+          onKeyDown={() => {
+            setIndex(i);
+            setModal(item);
+          }}
           onClick={() => {
             setIndex(i);
             setModal(item);
           }}
-        />
+          role="button"
+          title="img"
+          tabIndex={0}
+          key={url}
+        >
+          <img
+            src={url}
+            alt="product"
+          />
+        </div>
       ))}
     </div>
 
@@ -92,9 +98,13 @@ const ReviewListItem = ({
   </div>
 );
 
-// ReviewListItem.propTypes = {
-//   item: propTypes.shape(propTypes.any).isRequired,
-//   addHelpful: propTypes.func.isRequired,
-// };
+ReviewListItem.propTypes = {
+  // item: propTypes.shape(propTypes.any).isRequired,
+  addHelpful: propTypes.func.isRequired,
+  setModal: propTypes.func.isRequired,
+  setIndex: propTypes.func.isRequired,
+  setThumbIds: propTypes.func.isRequired,
+  thumbIds: propTypes.arrayOf(propTypes.any).isRequired,
+};
 
 export default ReviewListItem;
