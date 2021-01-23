@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import Star from './Star';
 
 const Title = ({
@@ -32,11 +31,11 @@ const Title = ({
   </div>
 );
 
-// Title.propTypes = {
-//   rating: propTypes.number.isRequired,
-//   totalReviews: propTypes.number.isRequired,
-//   display: propTypes.bool.isRequired,
-//   setDisplay: propTypes.func.isRequired,
-// };
+Title.propTypes = {
+  rating: propTypes.number.isRequired,
+  totalReviews: propTypes.number.isRequired,
+  display: propTypes.bool.isRequired,
+  setDisplay: propTypes.func.isRequired,
+};
 
 export default Title;

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import propTypes from 'prop-types';
 import React from 'react';
 import Bar from './Bar';
@@ -51,6 +50,7 @@ const Graph = ({ meta, filter }) => (
 );
 
 Graph.propTypes = {
+  meta: propTypes.shape().isRequired,
   filter: propTypes.number.isRequired,
 };
 

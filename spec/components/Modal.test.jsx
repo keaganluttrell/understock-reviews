@@ -11,12 +11,17 @@ describe('Modal', () => {
       <Modal
         item={null}
         thumbIds={[]}
+        index={0}
+        place={null}
+        reviewsWithImages={0}
         setThumbIds={() => { }}
         setIndex={() => { }}
         setModal={() => { }}
         addHelpful={() => { }}
-      />)
-      ;
+        setIndex={() => { }}
+        setPlace={() => { }}
+      />
+    );
     const modalClosed = document.getElementById('reviews-modal-closed');
     expect(modalClosed).toBeVisible();
   });
@@ -26,10 +31,14 @@ describe('Modal', () => {
       <Modal
         item={data[0]}
         thumbIds={[]}
+        index={0}
+        reviewsWithImages={0}
+        place={null}
         setThumbIds={() => { }}
         addHelpful={() => { }}
         setIndex={() => { }}
         setModal={() => { }}
+        setPlace={() => { }}
       />
     );
     const modalOpen = document.getElementById('reviews-modal-open');
@@ -50,6 +59,9 @@ describe('Modal', () => {
         setModal={mockModal}
         setPlace={mockPlace}
         thumbIds={[]}
+        index={0}
+        place={null}
+        reviewsWithImages={0}
         setThumbIds={() => { }}
         addHelpful={() => { }}
         setIndex={() => { }}
@@ -75,10 +87,11 @@ describe('Modal', () => {
         setModal={mockModal}
         setPlace={mockPlace}
         thumbIds={[]}
+        reviewsWithImages={10}
+        inde={0}
+        place={null}
         setThumbIds={() => { }}
         addHelpful={() => { }}
-        reviewsWithImages={10}
-        place={null}
         setIndex={() => { }}
       />
     );

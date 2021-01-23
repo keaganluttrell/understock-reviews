@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import moment from 'moment';
@@ -99,7 +98,7 @@ const ReviewListItem = ({
 );
 
 ReviewListItem.propTypes = {
-  // item: propTypes.shape(propTypes.any).isRequired,
+  item: propTypes.shape().isRequired,
   addHelpful: propTypes.func.isRequired,
   setModal: propTypes.func.isRequired,
   setIndex: propTypes.func.isRequired,

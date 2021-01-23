@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
+import propTypes from 'prop-types';
 import axios from 'axios';
 import ReviewList from './ReviewList';
 import Menu from './Menu';
@@ -176,6 +176,11 @@ const Reviews = ({ productId, meta }) => {
       />
     </>
   );
+};
+
+Reviews.propTypes = {
+  meta: propTypes.shape().isRequired,
+  productId: propTypes.number.isRequired,
 };
 
 export default Reviews;

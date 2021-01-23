@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+// import propTypes from 'prop-types';
 import ReviewListItem from './ReviewListItem';
 
 const Modal = ({
@@ -138,5 +139,18 @@ const Modal = ({
     </div>
   );
 };
+
+// Modal.propTypes = {
+//   item: propTypes.shape().isRequired,
+//   setModal: propTypes.func.isRequired,
+//   addHelpful: propTypes.func.isRequired,
+//   index: propTypes.number.isRequired,
+//   setIndex: propTypes.func.isRequired,
+//   place: propTypes.number.isRequired,
+//   setPlace: propTypes.func.isRequired,
+//   reviewsWithImages: propTypes.number.isRequired,
+//   thumbIds: propTypes.arrayOf(propTypes.any).isRequired,
+//   setThumbIds: propTypes.func.isRequired,
+// };
 
 export default Modal;
