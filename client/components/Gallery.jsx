@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable react/prop-types */
 import React from 'react';
+import propTypes from 'prop-types';
 
 const Gallery = ({
   gallery,
@@ -8,7 +8,7 @@ const Gallery = ({
   setPlace,
 }) => (
   <>
-    <div id="reviews-gallery">
+    <div id="reviews-gallery" data-testid="reviews-gallery">
       {gallery.map((review, i) => (
         <div
           className="reviews-gallery-img"
@@ -32,6 +32,7 @@ const Gallery = ({
       <button
         type="button"
         id="reviews-gallery-button"
+        title="galleryBtn"
         onClick={() => {
           setIndex(0);
           setPlace(0);
@@ -58,5 +59,11 @@ const Gallery = ({
     </div>
   </>
 );
+
+Gallery.propTypes = {
+  gallery: propTypes.arrayOf(propTypes.any).isRequired,
+  setIndex: propTypes.func.isRequired,
+  setPlace: propTypes.func.isRequired,
+};
 
 export default Gallery;

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+// import propTypes from 'prop-types';
 import ReviewListItem from './ReviewListItem';
 
 const Modal = ({
@@ -39,6 +40,7 @@ const Modal = ({
           <button
             type="button"
             id="reviews-modal-x"
+            title="close"
             onClick={() => {
               setModal(null);
               setPlace(null);
@@ -70,6 +72,7 @@ const Modal = ({
           <button
             type="button"
             id="modal-footer-btn-prev"
+            title="previous"
             style={{ display: place === 0 ? 'none' : 'flex' }}
             onClick={() => {
               if (place > 0) {
@@ -102,6 +105,7 @@ const Modal = ({
           <button
             type="button"
             id="modal-footer-btn-next"
+            title="next"
             style={{ display: place === reviewsWithImages - 1 ? 'none' : 'flex' }}
             onClick={() => {
               setPlace(place + 1);
@@ -135,5 +139,18 @@ const Modal = ({
     </div>
   );
 };
+
+// Modal.propTypes = {
+//   item: propTypes.shape().isRequired,
+//   setModal: propTypes.func.isRequired,
+//   addHelpful: propTypes.func.isRequired,
+//   index: propTypes.number.isRequired,
+//   setIndex: propTypes.func.isRequired,
+//   place: propTypes.number.isRequired,
+//   setPlace: propTypes.func.isRequired,
+//   reviewsWithImages: propTypes.number.isRequired,
+//   thumbIds: propTypes.arrayOf(propTypes.any).isRequired,
+//   setThumbIds: propTypes.func.isRequired,
+// };
 
 export default Modal;

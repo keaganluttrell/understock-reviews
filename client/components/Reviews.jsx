@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
+import propTypes from 'prop-types';
 import axios from 'axios';
 import ReviewList from './ReviewList';
 import Menu from './Menu';
@@ -142,6 +142,7 @@ const Reviews = ({ productId, meta }) => {
           <button
             type="button"
             id="RSM-text"
+            title="showBtn"
             onClick={() => setLimit(limit === 5 ? 10 : 5)}
           >
             {limit === 5 ? 'Show More' : 'Show Less'}
@@ -175,6 +176,11 @@ const Reviews = ({ productId, meta }) => {
       />
     </>
   );
+};
+
+Reviews.propTypes = {
+  meta: propTypes.shape().isRequired,
+  productId: propTypes.number.isRequired,
 };
 
 export default Reviews;

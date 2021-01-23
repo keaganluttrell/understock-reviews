@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import Star from './Star';
 
 const Title = ({
@@ -12,6 +11,7 @@ const Title = ({
   <div
     id="reviews-title"
     role="button"
+    title="titleBar"
     tabIndex={0}
     style={{ borderBottom: display ? '0px' : '1px solid  rgba(0, 0, 0, 0.405)' }}
     onKeyDown={() => setDisplay(!display)}
@@ -31,11 +31,11 @@ const Title = ({
   </div>
 );
 
-// Title.propTypes = {
-//   rating: propTypes.number.isRequired,
-//   totalReviews: propTypes.number.isRequired,
-//   display: propTypes.bool.isRequired,
-//   setDisplay: propTypes.func.isRequired,
-// };
+Title.propTypes = {
+  rating: propTypes.number.isRequired,
+  totalReviews: propTypes.number.isRequired,
+  display: propTypes.bool.isRequired,
+  setDisplay: propTypes.func.isRequired,
+};
 
 export default Title;

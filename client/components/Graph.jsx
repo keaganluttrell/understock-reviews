@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import React from 'react';
 import Bar from './Bar';
 import Star from './Star';
@@ -50,9 +49,9 @@ const Graph = ({ meta, filter }) => (
   </div>
 );
 
-// Graph.propTypes = {
-//   rating: propTypes.number.isRequired,
-//   totalReviews: propTypes.number.isRequired,
-// };
+Graph.propTypes = {
+  meta: propTypes.shape().isRequired,
+  filter: propTypes.number.isRequired,
+};
 
 export default Graph;

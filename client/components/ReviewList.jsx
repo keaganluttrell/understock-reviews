@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import ReviewListItem from './ReviewListItem';
 
 const ReviewList = ({
@@ -33,11 +32,13 @@ const ReviewList = ({
   </div>
 );
 
-// ReviewList.propTypes = {
-//   list: propTypes.arrayOf(propTypes.object).isRequired,
-//   addHelpful: propTypes.func.isRequired,
-//   setModal: propTypes.func.isRequired,
-//   setIndex: propTypes.func.isRequired,
-// };
+ReviewList.propTypes = {
+  list: propTypes.arrayOf(propTypes.any).isRequired,
+  addHelpful: propTypes.func.isRequired,
+  setModal: propTypes.func.isRequired,
+  setIndex: propTypes.func.isRequired,
+  thumbIds: propTypes.arrayOf(propTypes.any).isRequired,
+  setThumbIds: propTypes.func.isRequired,
+};
 
 export default ReviewList;

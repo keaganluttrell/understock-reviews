@@ -1,12 +1,7 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
-/* eslint-disable no-param-reassign */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import moment from 'moment';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import Star from './Star';
 
 const ReviewListItem = ({
@@ -38,15 +33,26 @@ const ReviewListItem = ({
 
     <div className="RLI-images">
       {item.images.map((url, i) => (
-        <img
-          src={url}
-          alt="product"
-          key={url}
+        <div
+          data-testid="RLI-img"
+          onKeyDown={() => {
+            setIndex(i);
+            setModal(item);
+          }}
           onClick={() => {
             setIndex(i);
             setModal(item);
           }}
-        />
+          role="button"
+          title="img"
+          tabIndex={0}
+          key={url}
+        >
+          <img
+            src={url}
+            alt="product"
+          />
+        </div>
       ))}
     </div>
 
@@ -62,11 +68,16 @@ const ReviewListItem = ({
         Was this review helpful?
         <div
           className="RLI-helpful-thumb"
+          role="button"
+          tabIndex={0}
+          title="thumbBtn"
           onKeyDown={() => {
-            addHelpful(item._id);
-            const newThumbs = JSON.parse(JSON.stringify(thumbIds));
-            newThumbs.push(item._id);
-            setThumbIds(newThumbs);
+            if (!thumbIds.includes(item._id)) {
+              addHelpful(item._id);
+              const newThumbs = JSON.parse(JSON.stringify(thumbIds));
+              newThumbs.push(item._id);
+              setThumbIds(newThumbs);
+            }
           }}
           onClick={() => {
             if (!thumbIds.includes(item._id)) {
@@ -76,8 +87,6 @@ const ReviewListItem = ({
               setThumbIds(newThumbs);
             }
           }}
-          role="button"
-          tabIndex={0}
         >
           <i className={`${thumbIds.includes(item._id) ? 'fas' : 'far'} fa-thumbs-up`} />
           {item.helpful}
@@ -88,9 +97,13 @@ const ReviewListItem = ({
   </div>
 );
 
-// ReviewListItem.propTypes = {
-//   item: propTypes.shape(propTypes.any).isRequired,
-//   addHelpful: propTypes.func.isRequired,
-// };
+ReviewListItem.propTypes = {
+  item: propTypes.shape().isRequired,
+  addHelpful: propTypes.func.isRequired,
+  setModal: propTypes.func.isRequired,
+  setIndex: propTypes.func.isRequired,
+  setThumbIds: propTypes.func.isRequired,
+  thumbIds: propTypes.arrayOf(propTypes.any).isRequired,
+};
 
 export default ReviewListItem;
