@@ -8,11 +8,12 @@
     "verbose": true
   },
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start-w": "nodemon server/server.js",
+    "start": "node server/server.js",
     "test": "jest",
     "test-w": "jest --watch",
     "build": "webpack -w",
-    "db:seed": "node database/seed.js"
+    "seed": "node database/seed.js"
   },
   "repository": {
     "type": "git",
