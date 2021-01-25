@@ -34,6 +34,7 @@ const ReviewListItem = ({
     <div className="RLI-images">
       {item.images.map((url, i) => (
         <div
+          id="RLI-img-div"
           data-testid="RLI-img"
           onKeyDown={() => {
             setIndex(i);
