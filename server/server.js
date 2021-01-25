@@ -51,4 +51,4 @@ app.patch('/:product_id/reviews/:id', (req, res) => {
     .then((review) => res.send(review));
 });
 
-app.listen(PORT);
+app.listen(PORT, console.log('Reviews Service running on', PORT));
