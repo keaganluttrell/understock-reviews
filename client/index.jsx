@@ -16,7 +16,7 @@ const meta = {
 };
 
 // eslint-disable-next-line no-undef
-const ID = PRODUCT_ID || 99;
+const ID = window.PRODUCT_ID < 0 || 99;
 
 ReactDOM.render(<Reviews productId={ID} meta={meta} />,
   document.getElementById('reviews-container'));
