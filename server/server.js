@@ -11,7 +11,7 @@ app.use(express.static(STATIC));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/:product_id/reviews', (req, res) => {
+app.get('/api/reviews/:product_id', (req, res) => {
   const { limit, rating, sort } = req.query;
   const product = req.params.product_id;
   Review.find({ product_id: product, rating: +rating || { $lt: 6 } })
@@ -21,7 +21,7 @@ app.get('/:product_id/reviews', (req, res) => {
     .then((reviews) => res.send(reviews));
 });
 
-app.get('/:product_id/reviews/images', (req, res) => {
+app.get('/api/reviews/:product_id/images', (req, res) => {
   const product = req.params.product_id;
   Review.find({ product_id: product, 'images.0': { $exists: true } })
     .sort('-review_date')
@@ -30,7 +30,7 @@ app.get('/:product_id/reviews/images', (req, res) => {
     .then((images) => res.send(images));
 });
 
-app.get('/:product_id/reviews/images/:place', (req, res) => {
+app.get('/api/reviews/:product_id/images/:place', (req, res) => {
   const product = req.params.product_id;
   const { place } = req.params;
   Review.find({ product_id: product, 'images.0': { $exists: true } })
@@ -41,7 +41,7 @@ app.get('/:product_id/reviews/images/:place', (req, res) => {
     .then((review) => res.send(review));
 });
 
-app.patch('/:product_id/reviews/:id', (req, res) => {
+app.patch('/api/reviews/:product_id/:id', (req, res) => {
   const reviewId = req.params.id;
   Review.findOneAndUpdate(
     { _id: reviewId },

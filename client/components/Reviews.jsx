@@ -35,14 +35,14 @@ const Reviews = ({ productId, meta }) => {
   const [thumbIds, setThumbIds] = useState([]);
 
   const getReviews = () => {
-    axios.get(`/${productId}/reviews?limit=${limit}&rating=${filter}&sort=${sort}`)
+    axios.get(`api/reviews/${productId}?limit=${limit}&rating=${filter}&sort=${sort}`)
       .then((reviews) => {
         setList(reviews.data);
       });
   };
 
   const getImages = () => {
-    axios.get(`/${productId}/reviews/images`)
+    axios.get(`api/reviews/${productId}/images`)
       .then((images) => {
         setGallery(images.data);
       });
@@ -50,7 +50,7 @@ const Reviews = ({ productId, meta }) => {
 
   const getPlace = () => {
     if (place !== null) {
-      axios.get(`/${productId}/reviews/images/${place}`)
+      axios.get(`api/reviews/${productId}/images/${place}`)
         .then((review) => {
           setModal(review.data[0]);
         });
@@ -58,7 +58,7 @@ const Reviews = ({ productId, meta }) => {
   };
 
   const addHelpful = (id) => {
-    axios.patch(`/${productId}/reviews/${id}`)
+    axios.patch(`api/reviews/${productId}/${id}`)
       .then((item) => {
         if (modal) {
           setModal(item.data);

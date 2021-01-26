@@ -50,7 +50,7 @@ describe('Reviews', () => {
     fireEvent.click(showBtn);
     await waitFor(() => {
       expect(axios.get)
-        .toHaveBeenLastCalledWith(`/${productId}/reviews?limit=10&rating=0&sort=review_date`);
+        .toHaveBeenLastCalledWith(`api/reviews/${productId}?limit=10&rating=0&sort=review_date`);
     });
 
     expect(showBtn).toContainHTML('Show Less');
@@ -58,7 +58,7 @@ describe('Reviews', () => {
     fireEvent.click(showBtn);
     await waitFor(() => {
       expect(axios.get)
-        .toHaveBeenLastCalledWith(`/${productId}/reviews?limit=5&rating=0&sort=review_date`);
+        .toHaveBeenLastCalledWith(`api/reviews/${productId}?limit=5&rating=0&sort=review_date`);
     });
 
     expect(showBtn).toContainHTML('Show More');
@@ -67,21 +67,21 @@ describe('Reviews', () => {
   test('will send GET request when modal next or previous buttons are clicked with proper place',
     async () => {
       const galleryBtn = screen.getByTitle('galleryBtn');
-      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`/${productId}/reviews/images`));
+      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`api/reviews/${productId}/images`));
 
       fireEvent.click(galleryBtn);
-      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`/${productId}/reviews/images/0`));
+      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`api/reviews/${productId}/images/0`));
 
       const nextBtn = screen.getByTitle('next');
       fireEvent.click(nextBtn);
-      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`/${productId}/reviews/images/1`));
+      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`api/reviews/${productId}/images/1`));
 
       const prevBtn = screen.getByTitle('previous');
       fireEvent.click(prevBtn);
-      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`/${productId}/reviews/images/0`));
+      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`api/reviews/${productId}/images/0`));
 
       fireEvent.click(prevBtn);
-      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`/${productId}/reviews/images/0`));
+      await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`api/reviews/${productId}/images/0`));
     });
 
   test('Review List item will send a PATCH request to server on helpful click', async () => {
@@ -93,7 +93,7 @@ describe('Reviews', () => {
     fireEvent.click(thumbBtn);
     await waitFor(() => {
       expect(axios.patch)
-        .toHaveBeenLastCalledWith(`/${productId}/reviews/${reviewId}`);
+        .toHaveBeenLastCalledWith(`api/reviews/${productId}/${reviewId}`);
     });
 
     expect(thumbBtn.innerHTML.includes('fas')).toBe(true);
@@ -108,7 +108,7 @@ describe('Reviews', () => {
     const galleryBtn = screen.getByTitle('galleryBtn');
 
     fireEvent.click(galleryBtn);
-    await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`/${productId}/reviews/images/0`));
+    await waitFor(() => expect(axios.get).toHaveBeenLastCalledWith(`api/reviews/${productId}/images/0`));
     const modal = screen.getByTestId('modal-open');
     const thumbBtn = within(modal).getByTitle('thumbBtn');
 
