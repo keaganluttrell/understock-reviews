@@ -15,7 +15,6 @@ const meta = {
   totalimages: 61,
 };
 
-// eslint-disable-next-line no-undef
 const ID = window.PRODUCT_ID < 0 || 99;
 
 ReactDOM.render(<Reviews productId={ID} meta={meta} />,
