@@ -15,7 +15,9 @@ const meta = {
   totalimages: 61,
 };
 
-const ID = window.PRODUCT_ID < 0 || 99;
+const params = (new URL(window.location)).searchParams;
+const product = params.get('product');
+const ID = product >= 0 ? +product : 99;
 
 ReactDOM.render(<Reviews productId={ID} meta={meta} />,
   document.getElementById('reviews-container'));
