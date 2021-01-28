@@ -12,7 +12,8 @@
     "start": "node server/server.js",
     "test": "jest",
     "test-w": "jest --watch",
-    "build": "webpack -w",
+    "build-w": "webpack -w",
+    "build": "webpack",
     "seed": "node database/seed.js"
   },
   "repository": {
