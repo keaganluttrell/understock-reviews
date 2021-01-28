@@ -1,0 +1,4 @@
+node_modules
+*.log
+reviews-app.js
+coverage
