@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const Review = require('../database/Review');
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3003;
 const app = express();
 
 app.use(express.static(STATIC));
+app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -18,7 +20,8 @@ app.get('/api/reviews/:product_id', (req, res) => {
     .sort(`-${sort || 'review_date'}`)
     .limit(+limit)
     .exec()
-    .then((reviews) => res.send(reviews));
+    .then((reviews) => res.send(reviews))
+    .catch((e) => res.send(e));
 });
 
 app.get('/api/reviews/:product_id/images', (req, res) => {
@@ -27,7 +30,8 @@ app.get('/api/reviews/:product_id/images', (req, res) => {
     .sort('-review_date')
     .limit(6)
     .exec()
-    .then((images) => res.send(images));
+    .then((images) => res.send(images))
+    .catch((e) => res.send(e));
 });
 
 app.get('/api/reviews/:product_id/images/:place', (req, res) => {
@@ -38,7 +42,8 @@ app.get('/api/reviews/:product_id/images/:place', (req, res) => {
     .skip(+place)
     .limit(1)
     .exec()
-    .then((review) => res.send(review));
+    .then((review) => res.send(review))
+    .catch((e) => res.send(e));
 });
 
 app.patch('/api/reviews/:product_id/:id', (req, res) => {
@@ -48,7 +53,8 @@ app.patch('/api/reviews/:product_id/:id', (req, res) => {
     { $inc: { helpful: 1 } },
     { new: true, useFindAndModify: false },
   )
-    .then((review) => res.send(review));
+    .then((review) => res.send(review))
+    .catch((e) => res.send(e));
 });
 
-app.listen(PORT, console.log('Reviews Service listening on', PORT));
+app.listen(PORT);
