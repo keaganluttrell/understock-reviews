@@ -2,13 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
+const expressStaticGZIP = require('express-static-gzip');
 const Review = require('../database/Review');
 
 const STATIC = path.resolve('public');
 const PORT = process.env.PORT || 3003;
 const app = express();
 
-app.use(express.static(STATIC));
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -56,5 +56,10 @@ app.patch('/api/reviews/:product_id/:id', (req, res) => {
     .then((review) => res.send(review))
     .catch((e) => res.send(e));
 });
+
+app.use('/', expressStaticGZIP(STATIC, {
+  enableBrotli: true,
+  orderPreference: ['br', 'gz'],
+}));
 
 app.listen(PORT);

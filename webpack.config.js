@@ -1,12 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
+const Compressor = require('compression-webpack-plugin');
+const zlib = require('zlib');
 
 const ENTRY = path.resolve(__dirname, 'client', 'index');
 const OUT_DIR = path.resolve(__dirname, 'public');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: ENTRY,
 
   output: {
@@ -14,7 +16,28 @@ module.exports = {
     filename: 'reviews-app.js',
   },
 
-  plugins: [new webpack.ProgressPlugin()],
+  plugins: [
+    new webpack.ProgressPlugin(),
+    new Compressor({
+      filename: '[path][base].gz',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    new Compressor({
+      filename: '[path][base].br',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+  ],
 
   module: {
     rules: [{
