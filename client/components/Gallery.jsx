@@ -2,8 +2,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-const keys = ['outdoors', 'home', 'garden', 'garage'];
-
 const Gallery = ({
   gallery,
   setIndex,

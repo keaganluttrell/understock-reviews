@@ -7,7 +7,7 @@ const Modal = ({
   item,
   setModal,
   addHelpful,
-  index,
+  // index,
   setIndex,
   place,
   setPlace,
