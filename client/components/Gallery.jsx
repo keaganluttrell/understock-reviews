@@ -2,6 +2,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+const keys = ['outdoors', 'home', 'garden', 'garage'];
+
 const Gallery = ({
   gallery,
   setIndex,
@@ -24,7 +26,7 @@ const Gallery = ({
           role="button"
           tabIndex={0}
         >
-          <img src={review.images[0]} alt="img" />
+          <img src={`https://loremflickr.com/320/240/home?random=${i}`} alt="img" />
         </div>
       ))}
     </div>

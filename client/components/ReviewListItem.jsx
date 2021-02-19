@@ -32,7 +32,7 @@ const ReviewListItem = ({
     <div className="RLI-body">{item.review_body}</div>
 
     <div className="RLI-images">
-      {item.images.map((url, i) => (
+      {item.images.map((_, i) => (
         <div
           id="RLI-img-div"
           data-testid="RLI-img"
@@ -47,10 +47,10 @@ const ReviewListItem = ({
           role="button"
           title="img"
           tabIndex={0}
-          key={url}
+          key={`https://picsum.photos/200${item._id + i}`}
         >
           <img
-            src={url}
+            src={`https://loremflickr.com/320/240/home?random=${Math.floor(Math.random() * 10000)}`}
             alt="product"
           />
         </div>

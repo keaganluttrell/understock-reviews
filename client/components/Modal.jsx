@@ -59,7 +59,7 @@ const Modal = ({
 
         <div id="reviews-modal-body">
           <div id="reviews-modal-image">
-            <img src={item?.images[index]} alt="alt" />
+            <img src="https://loremflickr.com/320/240/home?random=1000" alt="alt" />
           </div>
 
           <div id="reviews-modal-item">
