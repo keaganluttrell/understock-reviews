@@ -4,7 +4,7 @@
 
 ## About
 
-This application uses service oriented architecture and is designed to be a module of a larger web application.  This reviews service emcompases what you would see in any major eccomerce company today.  It can handle meta data, reviews, filters by rating, sort by most helpful or most recent and displays a gallery modal view as well. This service was built with React, Express, and MongoDB.
+This application uses service oriented architecture and is designed to be a module of a larger web application.  This service encompasses what you would see in any major e-commerce website today.  It can handle meta data, reviews, filters by rating, sort by most helpful or most recent and displays a gallery modal as well. This service was built with React, Express, and MongoDB.
 
 ## Installation
 
